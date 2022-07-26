@@ -3,6 +3,9 @@ package game.Ships;
 
 /**
  * Represents a single ship
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
  */
 public abstract class Ship
 {

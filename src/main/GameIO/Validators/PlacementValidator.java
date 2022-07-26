@@ -5,13 +5,33 @@ import game.GameBoard.Board;
 import game.Ships.Ship;
 
 
+/**
+ * Validates the coordinates given by the user are valid
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
+ */
 public class PlacementValidator extends InputValidator
 {
+    /**
+     * Class constructor
+     *
+     * @param board the <code>Board</code> each <code>Ship</code> will be placed on
+     */
     public PlacementValidator(Board board)
     {
         super(board);
     }
     
+    
+    /**
+     * Validate the coordinates given by the <code>Player</code>
+     *
+     * @param coord1Str the start coordinate of the <code>Ship</code>
+     * @param coord2Str the end coordinate of the <code>Ship</code>
+     * @param ship the <code>Ship</code> to be placed
+     * @return <code>true</code> if the coordinates given are valid, <code>false</code> otherwise
+     */
     public boolean validate(String coord1Str, String coord2Str, Ship ship)
     {
         if(!(super.validate(coord1Str) && super.validate(coord2Str)))

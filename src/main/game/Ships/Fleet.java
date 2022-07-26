@@ -6,6 +6,9 @@ import java.util.ArrayList;
 
 /**
  * Represents a full fleet of <code>Ship</code>s
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
  */
 public class Fleet extends ArrayList<Ship>
 {

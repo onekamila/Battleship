@@ -3,6 +3,9 @@ package game.Ships;
 
 /**
  * Represents a Destroyer
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
  */
 public class Destroyer extends Ship
 {

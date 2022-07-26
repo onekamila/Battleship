@@ -6,6 +6,9 @@ import GameIO.Views.PlayerView;
 
 /**
  * Represents a full game
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
  */
 public class Game
 {

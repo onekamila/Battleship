@@ -7,15 +7,26 @@ import game.MoveHistory;
 import java.util.List;
 
 
+/**
+ * Displays the most 22 most recent <code>Move</code>s
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
+ */
 public class MoveHistoryView
 {
     private MoveHistory moves;
     
-    
+    /**
+     * Class constructor
+     *
+     * @param history the full <code>MoveHistory</code> of the <code>Game</code>
+     */
     public MoveHistoryView(MoveHistory history)
     {
         this.moves = history;
     }
+    
     
     private Move[] getRecentMoves()
     {
@@ -54,6 +65,12 @@ public class MoveHistoryView
         }
     }
     
+    
+    /**
+     * Returns a <code>String</code> representation of this view
+     *
+     * @return a <code>String</code> representation of this view
+     */
     public String toString()
     {
         String outStr = "\t\t\t Moves\n";

@@ -9,7 +9,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class GameHistoryTest
+
+public class MoveHistoryTest
 {
     private static final String TEST_COORD1 = "A1";
     private static final String TEST_COORD2 = "B2";

@@ -4,16 +4,29 @@ package GameIO;
 import java.util.Scanner;
 
 
+/**
+ * Handles input from the user
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
+ */
 public class Input
 {
     private static Input instance;
     private Scanner input;
+    
     
     private Input()
     {
         input = new Scanner(System.in);
     }
     
+    
+    /**
+     * Get the single instances of the <code>Input</code>
+     *
+     * @return the instance of the <code>Input</code>
+     */
     public static Input getInstance()
     {
         if(instance == null)
@@ -24,6 +37,11 @@ public class Input
         return instance;
     }
     
+    /**
+     * Read a single line from the user
+     *
+     * @return a single line of text from the user
+     */
     public String readLine()
     {
         String inStr = input.nextLine().strip();
@@ -34,6 +52,10 @@ public class Input
         return inStr;
     }
     
+    
+    /**
+     * Close the <code>InputStream</code>
+     */
     public void close()
     {
         input.close();

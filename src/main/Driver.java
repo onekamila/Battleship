@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 /**
  * Main class
  *
+ * @author Garrett Kamila Crayton
  * @version 0.0.0
  */
 public class Driver

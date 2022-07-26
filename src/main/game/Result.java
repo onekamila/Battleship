@@ -3,6 +3,9 @@ package game;
 
 /**
  * Represents all possible results from a <code>Move</code>
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
  */
 public enum Result
 {

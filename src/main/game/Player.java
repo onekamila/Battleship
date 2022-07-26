@@ -10,6 +10,9 @@ import java.util.ArrayList;
 
 /**
  * Represents a single player
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
  */
 public class Player
 {

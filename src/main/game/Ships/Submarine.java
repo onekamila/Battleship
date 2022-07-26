@@ -3,6 +3,9 @@ package game.Ships;
 
 /**
  * Represents a Submarine
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
  */
 public class Submarine extends Ship
 {

@@ -3,6 +3,9 @@ package game.Ships;
 
 /**
  * Represents a Battleship
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
  */
 public class Battleship extends Ship
 {

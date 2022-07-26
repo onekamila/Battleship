@@ -11,6 +11,9 @@ import game.Ships.Ship;
 
 /**
  * Represents a single turn for placing every <code>Ship</code> in a <code>Player</code>'s <code>Fleet</code>
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
  */
 public class PlacementTurn
 {

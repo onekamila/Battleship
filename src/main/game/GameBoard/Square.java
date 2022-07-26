@@ -7,6 +7,9 @@ import game.Ships.Ship;
 
 /**
  * Represents a single square on a <code>Board</code>
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
  */
 public class Square
 {

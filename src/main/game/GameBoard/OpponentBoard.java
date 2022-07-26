@@ -6,6 +6,9 @@ import game.Move;
 
 /**
  * Represents a game <code>Board</code> for a single player. This model displays the player's moves
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
  */
 public class OpponentBoard extends Board
 {

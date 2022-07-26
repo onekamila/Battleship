@@ -3,6 +3,9 @@ package game.Ships;
 
 /**
  * Represents an Aircraft Carrier
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
  */
 public class AircraftCarrier extends Ship
 {

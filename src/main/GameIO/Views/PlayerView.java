@@ -1,10 +1,18 @@
 package GameIO.Views;
 
+
 import game.GameBoard.Board;
 import game.GameBoard.OpponentBoard;
 import game.MoveHistory;
 import game.Player;
 
+
+/**
+ * Displays a combination of all views for a <code>Player</code>
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
+ */
 public class PlayerView
 {
     private Board playerBoard;
@@ -14,6 +22,13 @@ public class PlayerView
     private MoveHistoryView historyView;
     
     
+    /**
+     * Class constructor
+     *
+     * @param player the <code>Player</code> for this <code>View</code>
+     * @param opponent the opponent of this view's <code>Player</code>
+     * @param history the <code>MoveHistory</code> for the <code>Game</code>
+     */
     public PlayerView(Player player, Player opponent, MoveHistory history)
     {
         this.playerBoard = player.getBoard();
@@ -24,6 +39,11 @@ public class PlayerView
     }
     
     
+    /**
+     * Returns a <code>String</code> representation of this view
+     *
+     * @return a <code>String</code> representation of this view
+     */
     @Override
     public String toString()
     {

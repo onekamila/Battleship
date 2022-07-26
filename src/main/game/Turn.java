@@ -10,6 +10,9 @@ import GameIO.Views.PlayerView;
 
 /**
  * Represents a turn for a single <code>Player</code>
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
  */
 public class Turn
 {

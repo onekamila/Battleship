@@ -6,6 +6,9 @@ import game.GameBoard.Square;
 
 /**
  * Represents a single move
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
  */
 public class Move
 {

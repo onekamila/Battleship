@@ -10,6 +10,9 @@ import java.util.ArrayList;
 
 /**
  * Represents a game board for a single player. This model displays the player's ships
+ *
+ * @author Garrett Kamila Crayton
+ * @version 0.0.0
  */
 public class Board
 {
