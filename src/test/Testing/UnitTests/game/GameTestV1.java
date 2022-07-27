@@ -19,7 +19,10 @@ import java.io.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class GameTest
+/**
+ * This will need to be completely redone
+ */
+public class GameTestV1
 {
 	private static final String TEST_FILE_PATH = "src/test/resources/TestData/GameUnitTestData.txt";
 	
