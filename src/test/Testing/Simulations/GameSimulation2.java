@@ -1,8 +1,9 @@
 package Testing.Simulations;
 
-import GameIO.Input;
-import game.Game;
-import game.Player;
+import Battleship.Controller.GameController;
+import Battleship.GameIO.Input;
+import Battleship.game.Game;
+import Battleship.game.Player;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,6 +21,7 @@ public class GameSimulation2
 	private static FileInputStream testFile;
 	
 	private static Game testGame;
+	private static GameController testController;
 	
 	private Player testP1;
 	private Player testP2;
@@ -32,8 +34,8 @@ public class GameSimulation2
 		System.setIn(testFile);
 		
 		testGame = new Game();
-		
-		testGame.start();
+		testController = new GameController(testGame);
+		testController.play();
 	}
 	
 	

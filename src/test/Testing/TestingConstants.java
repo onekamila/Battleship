@@ -659,6 +659,22 @@ public class TestingConstants
              12.   C3-M
             """;
     
+    public static final String EXPECTED_TWENTY_FOUR_MOVES_HISTORY_VIEW = """
+            \t\t\t Moves
+              ===================
+              2.   C1-M,   D1-M
+              3.   E1-M,   F1-M
+              4.   G1-M,   H1-M
+              5.   I1-M,   J1-M
+              6.   A2-M,   B2-M
+              7.   C2-M,   D2-M
+              8.   E2-M,   F2-M
+              9.   G2-M,   H2-M
+             10.   I2-M,   J2-M
+             11.   A3-M,   B3-M
+             12.   C3-M,   D3-M
+            """;
+    
     public static final String EXPECTED_TWENTY_SEVEN_MOVES_HISTORY_VIEW = """
             \t\t\t Moves
               ===================
@@ -673,6 +689,22 @@ public class TestingConstants
              12.   C3-M,   D3-M
              13.   E3-M,   F3-M
              14.   G3-M
+            """;
+    
+    public static final String EXPECTED_TWENTY_EIGHT_MOVES_HISTORY_VIEW = """
+            \t\t\t Moves
+              ===================
+              4.   G1-M,   H1-M
+              5.   I1-M,   J1-M
+              6.   A2-M,   B2-M
+              7.   C2-M,   D2-M
+              8.   E2-M,   F2-M
+              9.   G2-M,   H2-M
+             10.   I2-M,   J2-M
+             11.   A3-M,   B3-M
+             12.   C3-M,   D3-M
+             13.   E3-M,   F3-M
+             14.   G3-M,   H3-M
             """;
     
     public static final String EXPECTED_EMPTY_PLAYER_VIEW = """

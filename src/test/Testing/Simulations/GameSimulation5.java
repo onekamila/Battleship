@@ -1,9 +1,10 @@
 package Testing.Simulations;
 
 
-import GameIO.Input;
-import game.Game;
-import game.Player;
+import Battleship.Controller.GameController;
+import Battleship.GameIO.Input;
+import Battleship.game.Game;
+import Battleship.game.Player;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -17,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class GameSimulation5
 {
 	/**
-	 * Game Simulation 5 (Real game)
+	 * Game Simulation 5 (Real Battleship.game)
 	 *
 	 * Date: 2022 July 22
 	 * Time: 09:04
@@ -40,6 +41,7 @@ public class GameSimulation5
 	private static FileInputStream testFile;
 	
 	private static Game testGame;
+	private static GameController testController;
 	
 	private Player testP1;
 	private Player testP2;
@@ -52,8 +54,8 @@ public class GameSimulation5
 		System.setIn(testFile);
 		
 		testGame = new Game();
-		
-		testGame.start();
+		testController = new GameController(testGame);
+		testController.play();
 	}
 	
 	
