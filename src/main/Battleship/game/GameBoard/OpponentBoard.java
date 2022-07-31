@@ -5,10 +5,14 @@ import Battleship.game.Move;
 
 
 /**
- * Represents a Battleship.game <code>Board</code> for a single player. This model displays the player's moves
+ * Represents a game <code>Board</code> for a single player. This model displays the player's moves
+ *
+ * @see Board
+ * @see Move
  *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public class OpponentBoard extends Board
 {
@@ -24,10 +28,13 @@ public class OpponentBoard extends Board
     /**
      * Performs the desired move on the specified <code>Square</code>
      *
+     * @see Board#move(int, int)
+     *
      * @param row the row of the desired move
      * @param col the column of the desired move
      * @return the <code>Move</code> object representing the desired move
      */
+    @Override
     public Move move(int row, int col)
     {
         return super.move(row, col);
@@ -37,8 +44,11 @@ public class OpponentBoard extends Board
     /**
      * Returns a <code>String</code> representation of this of the <code>Board</code>
      *
+     * @see Board#toString()
+     *
      * @return a <code>String</code> representation of the <code>Board</code>
      */
+    @Override
     public String toString()
     {
         String originStr = super.toString();

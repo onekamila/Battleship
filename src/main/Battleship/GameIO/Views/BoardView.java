@@ -9,8 +9,12 @@ import Battleship.game.GameBoard.OpponentBoard;
 /**
  * Displays a player's <code>Board</code> and <code>OpponentBoard</code>
  *
+ * @see Board
+ * @see OpponentBoard
+ *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public class BoardView extends View
 {
@@ -26,6 +30,9 @@ public class BoardView extends View
     
     /**
      * Returns a <code>String</code> representation of this <code>View</code>
+     *
+     * @see Board#toString()
+     * @see OpponentBoard#toString()
      *
      * @return a <code>String</code> representation of this <code>View</code>
      */

@@ -5,7 +5,8 @@ package Battleship.game.Ships;
  * Represents a single ship
  *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public abstract class Ship
 {
@@ -87,6 +88,7 @@ public abstract class Ship
      *
      * @return the character code for the <code>Ship</code>
      */
+    @Override
     public String toString()
     {
         return Character.toString(symbol);

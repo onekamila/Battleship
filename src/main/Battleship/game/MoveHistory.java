@@ -5,10 +5,13 @@ import java.util.ArrayList;
 
 
 /**
- * Represents the full Battleship.game log
+ * Represents the full game log
+ *
+ * @see Move
  *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public class MoveHistory extends ArrayList<Move>
 {

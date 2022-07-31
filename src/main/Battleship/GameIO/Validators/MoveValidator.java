@@ -7,8 +7,12 @@ import Battleship.game.Game;
 /**
  * Validates that the coordinate entered by the user is valid
  *
+ * @see InputValidator
+ * @see Battleship.game.GameBoard.OpponentBoard
+ *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public class MoveValidator extends InputValidator
 {
@@ -29,6 +33,8 @@ public class MoveValidator extends InputValidator
     
     /**
      * Validate the coordinate given by the user
+     *
+     * @see InputValidator#validate(String)
      *
      * @param coord the coordinate to be validated
      * @return <code>true</code> if the coordinate given is valid, <code>false</code> otherwise

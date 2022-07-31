@@ -9,7 +9,8 @@ import Battleship.game.Ships.Ship;
  * Validates the coordinates given by the user are valid
  *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public class PlacementValidator extends InputValidator
 {
@@ -27,6 +28,8 @@ public class PlacementValidator extends InputValidator
     /**
      * Validate the coordinates given by the <code>Player</code>
      *
+     * @see InputValidator#validate(String) 
+     * 
      * @param coord1Str the start coordinate of the <code>Ship</code>
      * @param coord2Str the end coordinate of the <code>Ship</code>
      * @param ship the <code>Ship</code> to be placed

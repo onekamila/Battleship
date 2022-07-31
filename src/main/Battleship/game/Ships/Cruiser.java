@@ -4,8 +4,11 @@ package Battleship.game.Ships;
 /**
  * Represents a Cruiser
  *
+ * @see Ship
+ *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public class Cruiser extends Ship
 {
@@ -16,6 +19,8 @@ public class Cruiser extends Ship
     
     /**
      * Class constructor
+     *
+     * @see Ship
      */
     public Cruiser()
     {

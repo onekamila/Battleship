@@ -10,8 +10,12 @@ import Battleship.game.Ships.Ship;
 /**
  * Represents a single turn for placing every <code>Ship</code> in a <code>Player</code>'s <code>Fleet</code>
  *
+ * @see Player
+ * @see PlacementValidator
+ *
  * @author Garrett Kamila Crayton
  * @version 0.0.0
+ * @since 0.1.0
  */
 public class PlacementTurn extends TurnController
 {
@@ -96,8 +100,7 @@ public class PlacementTurn extends TurnController
         // Parse input
         int[] coord1 = parseCoord(coord1Str);
         int[] coord2 = parseCoord(coord2Str);
-    
-    
+        
         player.placeShip(coord1[0], coord1[1], coord2[0], coord2[1], ship);
         println("\n");
     }

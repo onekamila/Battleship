@@ -9,10 +9,14 @@ import java.util.ArrayList;
 
 
 /**
- * Represents a Battleship.game board for a single player. This model displays the player's ships
+ * Represents a game board for a single player. This model displays the player's ships
+ *
+ * @see Square
+ * @see Move
  *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public class Board
 {
@@ -29,7 +33,7 @@ public class Board
     }
     
     /**
-     * Alternative Constructor, used to construct a Board using previously used Squares
+     * Alternative constructor, used to construct a <code>Board</code> using previously used <code>Square</code>
      *
      * @param squares the 2D array of <code>Square</code>s to be used
      */
@@ -100,6 +104,8 @@ public class Board
     /**
      * Places the given <code>Ship</code> in the specified location on the <code>Board</code>
      *
+     * @see Square#setShip(Ship)
+     *
      * @param startRow the desired starting row of the <code>Ship</code>
      * @param startCol the desired starting column of the <code>Ship</code>
      * @param endRow the desired ending row of the <code>Ship</code>
@@ -137,7 +143,8 @@ public class Board
      *
      * @param row the desired row number
      * @param col the desired column number
-     * @return <code>true</code> if the <code>Square</code> is empty (no Ship placed on it), <code>false</code> otherwise
+     * @return <code>true</code> if the <code>Square</code> is empty (no <code>Ship</code> placed on it),
+     *          <code>false</code> otherwise
      */
     public boolean checkAvailable(int row, int col)
     {
@@ -147,6 +154,8 @@ public class Board
     
     /**
      * Performs the desired <code>Move</code> on the specified <code>Square</code>
+     *
+     * @see Square#move()
      *
      * @param row the row of the desired move
      * @param col the column of the desired move
@@ -163,7 +172,9 @@ public class Board
     }
     
     /**
-     * Resets the specified <code>Square</code> to the original (<code>Open</code>) state.
+     * Resets the specified <code>Square</code> to the original (<code>null</code>) state.
+     *
+     * @see Square#reset()
      *
      * This is mostly used for testing.
      */
@@ -178,8 +189,11 @@ public class Board
     /**
      * Returns a <code>String</code> representation of this of the <code>Board</code>
      *
+     * @see Square#toString()
+     *
      * @return a <code>String</code> representation of the <code>Board</code>
      */
+    @Override
     public String toString()
     {
         String outStr = "     ";

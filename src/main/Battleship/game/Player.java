@@ -11,8 +11,14 @@ import java.util.ArrayList;
 /**
  * Represents a single player
  *
+ * @see Board
+ * @see OpponentBoard
+ * @see Fleet
+ * @see ArrayList
+ *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public class Player
 {
@@ -45,9 +51,9 @@ public class Player
     }
     
     /**
-     * Return the number of sunken Ships
+     * Return the number of sunken Ships for this <code>Player</code>
      *
-     * @return the number of Ships in the Player's fleet that have been sunk
+     * @return the number of Ships in the <code>Player</code>'s fleet that have been sunk
      */
     public int getSunk()
     {
@@ -78,6 +84,8 @@ public class Player
     /**
      * Set this <code>Player</code>'s <code>OpponentBoard</code> to the given <code>OpponentBoard</code>
      *
+     * @see Player#setOpponentBoard(Player)
+     *
      * @param opponent the new <code>OpponentBoard</code>
      */
     public void setOpponentBoard(Player opponent)
@@ -88,6 +96,8 @@ public class Player
     
     /**
      * Place a single <code>Ship</code> at the specified location
+     *
+     * @see Board#placeShip(int, int, int, int, Ship)
      *
      * @param startRow the desired starting row of the <code>Ship</code>
      * @param startCol the desired starting column of the <code>Ship</code>
@@ -102,6 +112,8 @@ public class Player
     
     /**
      * Performs the desired move at the specified location
+     *
+     * @see OpponentBoard#move(int, int)
      *
      * @param row the row of the desired move
      * @param col the column of the desired move

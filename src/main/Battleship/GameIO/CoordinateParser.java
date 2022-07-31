@@ -5,7 +5,8 @@ package Battleship.GameIO;
  * Parses the given coordinate
  *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public class CoordinateParser
 {
@@ -13,7 +14,7 @@ public class CoordinateParser
      * Parses the given <code>String</code> into a coordinate
      *
      * @param coordStr the coordinate <code>String</code>
-     * @return the actual coordinate as an <code>int</code> array
+     * @return the actual coordinate as an <code>int[]</code>
      */
     public static int[] parse(String coordStr)
     {

@@ -1,0 +1,8 @@
+Battleship
+Battleship.Controller
+Battleship.game
+Battleship.game.GameBoard
+Battleship.game.Ships
+Battleship.GameIO
+Battleship.GameIO.Validators
+Battleship.GameIO.Views

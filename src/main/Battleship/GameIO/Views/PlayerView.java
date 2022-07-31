@@ -7,8 +7,13 @@ import Battleship.game.Game;
 /**
  * Displays a combination of all views for a <code>Player</code>
  *
+ * @see BoardView
+ * @see FleetOverview
+ * @see MoveHistoryView
+ *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public class PlayerView extends View
 {
@@ -32,6 +37,10 @@ public class PlayerView extends View
     
     /**
      * Returns a <code>String</code> representation of this <code>View</code>
+     *
+     * @see BoardView#toString()
+     * @see FleetOverview#toString()
+     * @see MoveHistoryView#toString()
      *
      * @return a <code>String</code> representation of this <code>View</code>
      */

@@ -8,13 +8,15 @@ import Battleship.game.*;
 /**
  * Represents a single turn
  *
+ * @see Game
+ *
  * @author Garrett Kamila Crayton
  * @version 0.0.0
+ * @since 0.1.0
  */
 public class Turn extends TurnController
 {
     private Game game;
-    //private MoveValidator validator;
     
     
     /**
@@ -25,7 +27,6 @@ public class Turn extends TurnController
     {
         super(new MoveValidator(game));
         this.game = game;
-        //validator = new MoveValidator(Battleship.game);
     }
     
     
@@ -41,7 +42,6 @@ public class Turn extends TurnController
         String coordStr = readLine();
         
         // Validate input
-        //if(invalid(coordStr))
         if(!validate(coordStr))
         {
             println("Invalid input! Please try again.");
@@ -56,9 +56,4 @@ public class Turn extends TurnController
         
         return true;
     }
-    
-    /*private boolean invalid(String coordStr)
-    {
-        return !validator.validate(coordStr);
-    }*/
 }

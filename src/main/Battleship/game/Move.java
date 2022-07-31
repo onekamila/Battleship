@@ -7,8 +7,12 @@ import Battleship.game.GameBoard.Square;
 /**
  * Represents a single move
  *
+ * @see Square
+ * @see Result
+ *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public class Move
 {
@@ -33,6 +37,7 @@ public class Move
     
     /**
      * Returns the <code>Square</code> for this <code>Move</code>
+     *
      * @return the <code>Square</code> for this <code>Move</code>
      */
     public Square getSquare()
@@ -42,6 +47,7 @@ public class Move
     
     /**
      * Returns the <code>Result</code> of this <code>Move</code>
+     
      * @return the <code>Result</code> of this <code>Move</code>
      */
     public Result getResult()
@@ -64,6 +70,7 @@ public class Move
      *
      * @return a <code>String</code> representation of the <code>Move</code>
      */
+    @Override
     public String toString()
     {
         String outStr = "";

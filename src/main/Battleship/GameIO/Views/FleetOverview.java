@@ -9,14 +9,16 @@ import Battleship.game.Ships.Ship;
 /**
  * Displays the status of each <code>Player</code>'s <code>Fleet</code>
  *
+ * @see Game
+ * @see Battleship.game.Player
+ * @see Fleet
+ *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public class FleetOverview extends View
 {
-    private Game game;
-    
-    
     /**
      * Class constructor
      *
@@ -30,6 +32,9 @@ public class FleetOverview extends View
     
     /**
      * Returns a <code>String</code> representation of this <code>View</code>
+     *
+     * @see Game#getCurrentPlayer()
+     * @see Game#getCurrentOpponent()
      *
      * @return a <code>String</code> representation of this <code>View</code>
      */
@@ -57,13 +62,6 @@ public class FleetOverview extends View
         return outStr;
     }
     
-    
-    /**
-     * Returns the status of the specified <code>Ship</code>
-     *
-     * @param ship the <code>Ship</code> to get the status from
-     * @return the status of the given <code>Ship</code>
-     */
     private static String shipStatus(Ship ship)
     {
         String shipName = ship.getName();

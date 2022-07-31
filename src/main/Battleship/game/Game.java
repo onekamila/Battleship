@@ -2,10 +2,14 @@ package Battleship.game;
 
 
 /**
- * Represents a full Battleship.game
+ * Represents a full game
+ *
+ * @see Player
+ * @see MoveHistory
  *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public class Game
 {
@@ -99,6 +103,8 @@ public class Game
     /**
      * Returns the most recent <code>Move</code> made
      *
+     * @see MoveHistory#getLastMove()
+     *
      * @return the last <code>Move</code> in the <code>MoveHistory</code>
      */
     public Move getLastMove()
@@ -109,6 +115,8 @@ public class Game
     
     /**
      * Make a single move
+     *
+     * @see Player#move(int, int)
      *
      * @param row the row of the desired move
      * @param col the column of the desired move
@@ -146,6 +154,9 @@ public class Game
     
     /**
      * Make sure that the <code>Player</code>'s <code>Fleet</code> hasn't been sunk
+     *
+     * @see Player#checkFleet()
+     * @see Player#getSunk()
      *
      * @param player the <code>Player</code> to check
      * @return <code>true</code> if all <code>Ship</code>s in the <code>Player</code>'s <code>Fleet</code> are sunk

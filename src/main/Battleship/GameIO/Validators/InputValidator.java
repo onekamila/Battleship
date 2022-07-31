@@ -8,11 +8,17 @@ import Battleship.game.GameBoard.Board;
 /**
  * Validates the input from the user
  *
+ * @see Board
+ *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public abstract class InputValidator
 {
+    /**
+     * The <code>Board</code> this <code>Validator</code> will use to validate the given input
+     */
     protected Board board;
     
     
@@ -29,6 +35,8 @@ public abstract class InputValidator
     
     /**
      * Validate the input given
+     *
+     * @see Board#checkAvailable(int, int)
      *
      * @param input the input to be validated
      * @return <code>true</code> if the input given is valid, <code>false</code> otherwise
@@ -52,6 +60,14 @@ public abstract class InputValidator
         }
     }
     
+    /**
+     * Parse the coordinate from the given <code>String</code>
+     *
+     * @see CoordinateParser
+     *
+     * @param coord the coordinate as a <code>String</code>
+     * @return the coordinate as an <code>int[]</code>
+     */
     protected int[] parse(String coord)
     {
         return CoordinateParser.parse(coord);

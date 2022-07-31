@@ -10,6 +10,7 @@ import Battleship.game.Player;
  *
  * @author Garrett Kamila Crayton
  * @version 0.1.0
+ * @since 0.1.0
  */
 public abstract class View
 {
@@ -31,6 +32,9 @@ public abstract class View
 	}
 	
 	
+	/**
+	 * Update the current <code>Player</code>s
+	 */
 	protected void updatePlayers()
 	{
 		this.player = game.getCurrentPlayer();

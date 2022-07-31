@@ -8,8 +8,12 @@ import Battleship.game.Ships.Ship;
 /**
  * Represents a single square on a <code>Board</code>
  *
+ * @see Result
+ * @see Ship
+ *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public class Square
 {
@@ -34,7 +38,9 @@ public class Square
     /**
      * Returns the <code>Result</code> for this <code>Square</code>
      *
-     * @return the <code>Result</code> for this <code>Square</code>
+     * @see Result
+     *
+     * @return the <code>Result</code> for this <code>Square</code>, <code>null</code> if no move made on it
      */
     public Result getResult()
     {
@@ -54,6 +60,8 @@ public class Square
     /**
      * Returns the <code>Ship</code> placed at this <code>Square</code>, if any
      *
+     * @see Ship
+     *
      * @return the <code>Ship</code> placed at this <code>Square</code>, <code>null</code> if no ship placed
      */
     public Ship getShip()
@@ -63,6 +71,8 @@ public class Square
     
     /**
      * Set a given <code>Ship</code> on this <code>Square</code>
+     *
+     * @see Ship
      *
      * @param ship the <code>Ship</code> to be placed
      */
@@ -74,6 +84,9 @@ public class Square
     
     /**
      * Make a move on this <code>Square</code>
+     *
+     * @see Result
+     * @see Ship#hit()
      *
      * @return the <code>Result</code> of the move
      */
@@ -99,7 +112,7 @@ public class Square
     }
     
     /**
-     * Resets this <code>Square</code> to its original (<code>Open</code>) state.
+     * Resets this <code>Square</code> to its original (<code>null</code>) state.
      *
      * This is mostly used for testing
      */
@@ -111,8 +124,12 @@ public class Square
     /**
      * Returns a <code>String</code> representation of this of the <code>Board</code>
      *
+     * @see Ship#toString()
+     * @see Result#toString()
+     *
      * @return a <code>String</code> representation of the <code>Board</code>
      */
+    @Override
     public String toString()
     {
         if(result == null)

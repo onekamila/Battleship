@@ -11,8 +11,11 @@ import java.util.List;
 /**
  * Displays the most 22 most recent <code>Move</code>s
  *
+ * @see MoveHistory
+ *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public class MoveHistoryView extends View
 {
@@ -71,6 +74,8 @@ public class MoveHistoryView extends View
     
     /**
      * Returns a <code>String</code> representation of this <code>View</code>
+     *
+     * @see Move#toString()
      *
      * @return a <code>String</code> representation of this <code>View</code>
      */

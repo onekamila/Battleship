@@ -7,8 +7,12 @@ import java.util.ArrayList;
 /**
  * Represents a full fleet of <code>Ship</code>s
  *
+ * @see Ship
+ * @see ArrayList
+ *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public class Fleet extends ArrayList<Ship>
 {
@@ -31,6 +35,8 @@ public class Fleet extends ArrayList<Ship>
     
     /**
      * Return the number of hits the fleet has sustained
+     *
+     * @see Ship
      *
      * @return the total number of hits on every <code>Ship</code> in the fleet
      */

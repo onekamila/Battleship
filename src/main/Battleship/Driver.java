@@ -12,8 +12,12 @@ import java.io.PrintWriter;
 /**
  * Main class
  *
+ * @see Game
+ * @see GameController
+ *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.1.0
+ * @since 0.0.0
  */
 public class Driver
 {
