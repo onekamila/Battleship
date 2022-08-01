@@ -11,7 +11,8 @@ javac -cp out -sourcepath src\main -d out src\main\Battleship\Driver.java
 java -cp out Battleship.Driver
 ```
 *For my less shell-savy friends*: an installer has been included for your convenience. Simply download the .msi file, 
-run it, and then you will be able to run the game from there.
+run it, and then you will be able to run the game from there. (Currently only for Windows. I'll probably get around to 
+packaging it into a macOS and Unix installer at some point soon.)
 
 
 ## Overview
