@@ -10,7 +10,8 @@ Navigate to the folder that you saved the code to, then run the following comman
 javac -cp out -sourcepath src\main -d out src\main\Battleship\Driver.java
 java -cp out Battleship.Driver
 ```
-*For my less shell-savy friends*: an installer and executable will be coming soon.
+*For my less shell-savy friends*: an installer has been included for your convenience. Simply download the .msi file, 
+run it, and then you will be able to run the game from there.
 
 
 ## Overview
