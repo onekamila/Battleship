@@ -4,6 +4,7 @@ package Testing.UnitTests.Battleship.Controller;
 import Battleship.Controller.Turn;
 import Battleship.GameIO.Input;
 import Battleship.GameIO.Views.PlayerView;
+import Battleship.game.GameBoard.Coordinate;
 import Testing.TestingConstants;
 import Battleship.game.*;
 import Battleship.game.Ships.Fleet;
@@ -67,10 +68,10 @@ public class TurnTest
 	
 	private void placeShip(Player player, Ship ship, int[][] positions)
 	{
-		int[] start = positions[0];
-		int[] end = positions[1];
+		Coordinate start = new Coordinate(positions[0][0], positions[0][1]);
+		Coordinate end = new Coordinate(positions[1][0], positions[1][1]);
 		
-		player.placeShip(start[0], start[1], end[0], end[1], ship);
+		player.placeShip(start, end, ship);
 	}
 	
 	
@@ -156,10 +157,10 @@ public class TurnTest
 	
 	private void almostSink()
 	{
-		testPlayer.move(1, 2);
-		testPlayer.move(1, 3);
-		testPlayer.move(1, 4);
-		testPlayer.move(1, 5);
+		testPlayer.move(new Coordinate(1, 2));
+		testPlayer.move(new Coordinate(1, 3));
+		testPlayer.move(new Coordinate(1, 4));
+		testPlayer.move(new Coordinate(1, 5));
 	}
 	
 	

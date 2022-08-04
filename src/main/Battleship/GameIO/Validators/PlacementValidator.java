@@ -2,6 +2,7 @@ package Battleship.GameIO.Validators;
 
 
 import Battleship.game.GameBoard.Board;
+import Battleship.game.GameBoard.Coordinate;
 import Battleship.game.Ships.Ship;
 
 
@@ -9,7 +10,7 @@ import Battleship.game.Ships.Ship;
  * Validates the coordinates given by the user are valid
  *
  * @author Garrett Kamila Crayton
- * @version 0.1.0
+ * @version 0.2.0
  * @since 0.0.0
  */
 public class PlacementValidator extends InputValidator
@@ -42,95 +43,42 @@ public class PlacementValidator extends InputValidator
             return false;
         }
         
-        int[] coord1 = parse(coord1Str);
-        int[] coord2 = parse(coord2Str);
-        
+        Coordinate coord1 = new Coordinate(coord1Str);
+        Coordinate coord2 = new Coordinate(coord2Str);
+    
         return validPosition(coord1, coord2, ship);
     }
     
-    private boolean validPosition(int[] coord1, int[] coord2, Ship ship)
+    private boolean validPosition(Coordinate coord1, Coordinate coord2, Ship ship)
     {
-        if(coord1[0] == coord2[0])
-        {
-            // Check valid horizontal
-            return checkHorizontal(coord1, coord2, ship);
-        }
-        else if(coord1[1] == coord2[1])
-        {
-            // Check valid vertical
-            return checkVertical(coord1, coord2, ship);
-        }
-        else
-        {
-            return false;
-        }
-    }
-    
-    private boolean checkHorizontal(int[] coord1, int[] coord2, Ship ship)
-    {
-        int distance = getDistance(coord1[1], coord2[1]);
+        Coordinate diff = new Coordinate((coord2.x - coord1.x), (coord2.y - coord1.y));
         
-        // Check ship length
-        if(!checkLength(distance, ship))
+        if((diff.x != 0) && (diff.y != 0))
         {
             return false;
         }
         
-        // Check available slots
-        return checkRow(coord1, distance);
-    }
-    
-    private boolean checkVertical(int[] coord1, int[] coord2, Ship ship)
-    {
-        int distance = getDistance(coord1[0], coord2[0]);
+        if((diff.x < 0) || (diff.y < 0))
+        {
+            return validPosition(coord2, coord1, ship);
+        }
         
-        // Check ship length
-        if(!checkLength(distance, ship))
+        diff.x++;
+        diff.y++;
+        
+        if((diff.x != ship.getLength()) && (diff.y != ship.getLength()))
         {
             return false;
         }
         
-        // Check available slots
-        return checkCol(coord1, distance);
-    }
-    
-    private int getDistance(int sq1, int sq2)
-    {
-        if(sq1 > sq2)
+        for(int x = 0; x < diff.x; x++)
         {
-            return (sq1 - sq2) + 1;
-        }
-        else
-        {
-            return (sq2 - sq1) + 1;
-        }
-    }
-    
-    private boolean checkLength(int distance, Ship ship)
-    {
-        return (distance == ship.getLength());
-    }
-    
-    private boolean checkRow(int[] origin, int distance)
-    {
-        for(int i = origin[1]; i < (origin[1] + distance); i++)
-        {
-            if(!board.checkAvailable(origin[0], i))
+            for(int y = 0; y < diff.y; y++)
             {
-                return false;
-            }
-        }
-        
-        return true;
-    }
-    
-    private boolean checkCol(int[] origin, int distance)
-    {
-        for(int i = origin[0]; i < (origin[0] + distance); i++)
-        {
-            if(!board.checkAvailable(i, origin[1]))
-            {
-                return false;
+                if(!board.checkAvailable(x + coord1.x, y + coord1.y))
+                {
+                    return false;
+                }
             }
         }
         

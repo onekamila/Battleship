@@ -1,6 +1,7 @@
 package Testing.UnitTests.Battleship.Controller;
 
 import Battleship.GameIO.Input;
+import Battleship.game.GameBoard.Coordinate;
 import Testing.TestingConstants;
 import Battleship.game.GameBoard.Board;
 import Battleship.Controller.PlacementTurn;
@@ -141,12 +142,15 @@ public class PlacementTurnTest
 		for(int i = 0; i < 9; i++)
 		{
 			Ship ship = fleet.get(i);
-			int[] start = TEST_FLEET_POSITIONS[i][0];
-			int[] end = TEST_FLEET_POSITIONS[i][1];
+			//int[] start = TEST_FLEET_POSITIONS[i][0];
+			//int[] end = TEST_FLEET_POSITIONS[i][1];
+			Coordinate start = new Coordinate(TEST_FLEET_POSITIONS[i][0][0], TEST_FLEET_POSITIONS[i][0][1]);
+			Coordinate end = new Coordinate(TEST_FLEET_POSITIONS[i][1][0], TEST_FLEET_POSITIONS[i][1][1]);
 			
 			outStr += validShipStr(board, ship);
 			
-			board.placeShip(start[0], start[1], end[0], end[1], ship);
+			//board.placeShip(start[0], start[1], end[0], end[1], ship);
+			board.placeShip(start, end, ship);
 		}
 		
 		return outStr;

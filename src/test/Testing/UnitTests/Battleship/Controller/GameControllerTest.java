@@ -3,7 +3,9 @@ package Testing.UnitTests.Battleship.Controller;
 
 import Battleship.Controller.GameController;
 import Battleship.GameIO.Input;
+import Battleship.GameIO.MoveHistoryWriter;
 import Battleship.GameIO.Views.PlayerView;
+import Battleship.game.GameBoard.Coordinate;
 import Testing.TestingConstants;
 import Battleship.game.Game;
 import Battleship.game.GameBoard.Board;
@@ -16,6 +18,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.io.*;
+import java.nio.file.Files;
 import java.util.NoSuchElementException;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -74,17 +77,17 @@ public class GameControllerTest
 		for(int i = 0; i < 9; i++)
 		{
 			Ship ship = fleet.get(i);
-			int[] start = positions[i][0];
-			int[] end = positions[i][1];
+			Coordinate start = new Coordinate(positions[i][0][0], positions[i][0][1]);
+			Coordinate end = new Coordinate(positions[i][1][0], positions[i][1][1]);
 			
-			board.placeShip(start[0], start[1], end[0], end[1], ship);
+			board.placeShip(start, end, ship);
 		}
 	}
-	
 	
 	@Test
 	public void initiallyEmptyView()
 	{
+		assertNotNull(testController.getHistoryWriter());
 		String testOutStr = testOutStream.toString();
 		assertEquals("", testOutStr);
 		assertEquals(testView.toString(), testController.getView().toString());
@@ -100,7 +103,6 @@ public class GameControllerTest
 		sinkShips(testP2, FLEET1_COORDS);
 		
 		// Last turn
-		//testController.play();
 		testController.startGame();
 		
 		// Check winner
@@ -112,7 +114,7 @@ public class GameControllerTest
 	}
 	
 	@Test
-	public void placeShips()
+	public void fullGame()
 	{
 		startGame();
 		
@@ -144,11 +146,11 @@ public class GameControllerTest
 			
 			for(int[] coord: ship)
 			{
-				player.move(coord[0], coord[1]);
+				player.move(new Coordinate(coord[0], coord[1]));
 			}
 		}
 		
-		player.move(coords[8][0][0], coords[8][0][1]);
+		player.move(new Coordinate(coords[8][0][0], coords[8][0][1]));
 	}
 	
 	private void startGame()
@@ -165,8 +167,12 @@ public class GameControllerTest
 	
 	
 	@AfterEach
-	public void shutdown()
+	public void shutdown() throws IOException
 	{
+		testController.getHistoryWriter().close();
+		File testFile = new File(MoveHistoryWriter.LOG_DIR_PATH + File.separator + "game.log");
+		Files.deleteIfExists(testFile.toPath());
+		
 		testInput.close();
 	}
 }

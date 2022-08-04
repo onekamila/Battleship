@@ -12,12 +12,12 @@ import Battleship.game.Ships.Ship;
  * @see Ship
  *
  * @author Garrett Kamila Crayton
- * @version 0.1.0
+ * @version 0.2.0
  * @since 0.0.0
  */
 public class Square
 {
-    private String position;
+    private Coordinate coord;
     private Result result;
     private Ship ship;
     
@@ -25,13 +25,13 @@ public class Square
     /**
      * Class constructor
      *
-     * @param position the position of this <code>Square</code> within its parent <code>Board</code>
+     * @param coord the coordinate of this <code>Square</code> within its parent <code>Board</code>
      */
-    public Square(String position)
+    public Square(Coordinate coord)
     {
+        this.coord = coord;
         this.result = null;
         this.ship = null;
-        this.position = position;
     }
     
     
@@ -54,7 +54,7 @@ public class Square
      */
     public String getPosition()
     {
-        return this.position;
+        return coord.toString();
     }
     
     /**

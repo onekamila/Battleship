@@ -1,6 +1,7 @@
 package Battleship.Controller;
 
 
+import Battleship.GameIO.MoveHistoryWriter;
 import Battleship.GameIO.Output;
 import Battleship.GameIO.Views.PlayerView;
 import Battleship.game.Game;
@@ -32,6 +33,7 @@ import Battleship.game.Ships.Ship;
 public class GameController
 {
 	private Output output;
+	private MoveHistoryWriter historyWriter;
 	private Game game;
 	
 	private PlacementTurn p1PT;
@@ -62,6 +64,7 @@ public class GameController
 		turnController = new Turn(game);
 		
 		view = new PlayerView(game);
+		historyWriter = new MoveHistoryWriter(game.getHistory());
 	}
 	
 	
@@ -74,9 +77,13 @@ public class GameController
 		return view;
 	}
 	
+	public MoveHistoryWriter getHistoryWriter()
+	{
+		return historyWriter;
+	}
 	
 	/**
-	 * Begin the Battleship.game (including placing the ships)
+	 * Begin the game (including placing the ships)
 	 */
 	public void play()
 	{
@@ -84,12 +91,12 @@ public class GameController
 		p1PT.start();
 		p2PT.start();
 		
-		// Begin Battleship.game
+		// Begin game
 		startGame();
 	}
 	
 	/**
-	 * Begin the Battleship.game proper (excludes placing the ships)
+	 * Begin the game proper (excludes placing the ships)
 	 */
 	public void startGame()
 	{
@@ -102,7 +109,7 @@ public class GameController
 			
 			// Run Turn
 			valid = false;
-			while(!valid)
+			while (!valid)
 			{
 				valid = turnController.start();
 			}
@@ -110,6 +117,10 @@ public class GameController
 			// Output result
 			outputResult();
 		}
+		
+		// Write history file
+		historyWriter.writeHistory();
+		historyWriter.close();
 	}
 	
 	private void outputResult()

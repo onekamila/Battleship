@@ -3,6 +3,7 @@ package Testing.UnitTests.Battleship.GameIO.Views;
 
 import Battleship.GameIO.Input;
 import Battleship.GameIO.Views.MoveHistoryView;
+import Battleship.game.GameBoard.Coordinate;
 import Testing.TestingConstants;
 import Battleship.game.Game;
 import Battleship.game.GameBoard.Square;
@@ -20,8 +21,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MoveHistoryViewTest
 {
-    private static final String FIRST_MOVE_SQUARE = "A1";
-    private static final String SECOND_MOVE_SQUARE = "A2";
+    private static final Coordinate FIRST_MOVE_SQUARE = new Coordinate("A1");
+    private static final Coordinate SECOND_MOVE_SQUARE = new Coordinate("A2");
     
     private static final String EMPTY_HISTORY = TestingConstants.EXPECTED_EMPTY_HISTORY_VIEW;
     private static final String FIRST_MOVE_MISS = TestingConstants.EXPECTED_FIRST_MOVE_MISS_HISTORY_VIEW;
@@ -194,16 +195,15 @@ public class MoveHistoryViewTest
     
     private void generateMoves(int maxMoves)
     {
-        for(int r = 1; r < 11; r++)
+        for(int x = 0; x < 10; x++)
         {
-            for(char c = 'A'; c < 'K'; c++)
+            for(int y = 0; y < 10; y++)
             {
                 if(testHistory.size() >= maxMoves)
                 {
                     break;
                 }
-                String squareCoord = c + Integer.toString(r);
-                Square newSquare = new Square(squareCoord);
+                Square newSquare = new Square(new Coordinate(x, y));
                 
                 newMove(newSquare, Result.MISS);
             }

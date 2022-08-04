@@ -1,6 +1,7 @@
 package Testing.UnitTests.Battleship.game;
 
 
+import Battleship.game.GameBoard.Coordinate;
 import Battleship.game.GameBoard.Square;
 import Battleship.game.Move;
 import Battleship.game.Result;
@@ -14,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MoveTest
 {
-    private static final String TEST_COORD = "A1";
+    private static final Coordinate TEST_COORD = new Coordinate("A1");
     private static final String TEST_HIT = "A1-HB";
     private static final String TEST_MISS = "A1-M";
     private static final String TEST_SUNK = "A1-SB";
@@ -41,7 +42,7 @@ public class MoveTest
         testMove = new Move(testSquare, Result.HIT);
         
         assertEquals(testSquare, testMove.getSquare());
-        assertEquals(TEST_COORD, testMove.getSquare().getPosition());
+        assertEquals(TEST_COORD.toString(), testMove.getSquare().getPosition());
         assertEquals(TEST_HIT, testMove.toString());
     }
     
@@ -52,7 +53,7 @@ public class MoveTest
         testMove = new Move(testSquare, Result.MISS);
     
         assertEquals(testSquare, testMove.getSquare());
-        assertEquals(TEST_COORD, testMove.getSquare().getPosition());
+        assertEquals(TEST_COORD.toString(), testMove.getSquare().getPosition());
         assertEquals(TEST_MISS, testMove.toString());
     }
     
@@ -63,7 +64,7 @@ public class MoveTest
         testMove = new Move(testSquare, Result.SUNK);
     
         assertEquals(testSquare, testMove.getSquare());
-        assertEquals(TEST_COORD, testMove.getSquare().getPosition());
+        assertEquals(TEST_COORD.toString(), testMove.getSquare().getPosition());
         assertEquals(TEST_SUNK, testMove.toString());
     }
     
@@ -76,7 +77,7 @@ public class MoveTest
         testMove.setWin();
     
         assertEquals(testSquare, testMove.getSquare());
-        assertEquals(TEST_COORD, testMove.getSquare().getPosition());
+        assertEquals(TEST_COORD.toString(), testMove.getSquare().getPosition());
         assertEquals(TEST_WIN, testMove.toString());
     }
 }

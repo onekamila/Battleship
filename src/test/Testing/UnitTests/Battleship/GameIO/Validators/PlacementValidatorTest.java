@@ -2,6 +2,7 @@ package Testing.UnitTests.Battleship.GameIO.Validators;
 
 
 import Battleship.GameIO.Validators.PlacementValidator;
+import Battleship.game.GameBoard.Coordinate;
 import Testing.TestingConstants;
 import Battleship.game.GameBoard.Board;
 import Battleship.game.Ships.AircraftCarrier;
@@ -9,7 +10,6 @@ import Battleship.game.Ships.Ship;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -49,10 +49,11 @@ public class PlacementValidatorTest
     private void setup(int position)
     {
         int[][] coords = PLACED_SHIP_POSITIONS[position];
-        int[] start = coords[0];
-        int[] end = coords[1];
         
-        testBoard.placeShip(start[0], start[1], end[0], end[1], placedShip);
+        Coordinate start = new Coordinate(coords[0][0], coords[0][1]);
+        Coordinate end = new Coordinate(coords[1][0], coords[1][1]);
+    
+        testBoard.placeShip(start, end, placedShip);
     }
     
     
@@ -108,9 +109,16 @@ public class PlacementValidatorTest
     
     // Valid wrong order
     @Test
-    public void validWrongOrder()
+    public void validWrongOrderHorizontal()
     {
         assertValid(8);
+    }
+    
+    
+    @Test
+    public void validWrongOrderVertical()
+    {
+        assertValid(9);
     }
     
     
@@ -118,33 +126,33 @@ public class PlacementValidatorTest
     @Test
     public void invalidShortHorizontal()
     {
-        assertInvalid(9);
+        assertInvalid(10);
     }
     
     @Test
     public void invalidShortVertical()
     {
-        assertInvalid(10);
+        assertInvalid(11);
     }
     
     // Invalid too long (more than ship length)
     @Test
     public void invalidLongHorizontal()
     {
-        assertInvalid(11);
+        assertInvalid(12);
     }
     
     @Test
     public void invalidLongVertical()
     {
-        assertInvalid(12);
+        assertInvalid(13);
     }
     
     // Invalid diagonal
     @Test
     public void invalidDiagonal()
     {
-        assertInvalid(13);
+        assertInvalid(14);
     }
     
     
@@ -419,7 +427,6 @@ public class PlacementValidatorTest
     
     
     // Helper functions
-    
     private void assertValid(String[] coord)
     {
         assertTrue(validator.validate(coord[0], coord[1], testShip));
@@ -431,7 +438,7 @@ public class PlacementValidatorTest
     }
     
     
-    private void assertInvalid(String coord[])
+    private void assertInvalid(String[]  coord)
     {
         assertFalse(validator.validate(coord[0], coord[1], testShip));
     }

@@ -1,6 +1,7 @@
 package Testing.UnitTests.Battleship.game;
 
 
+import Battleship.game.GameBoard.Coordinate;
 import Battleship.game.GameBoard.Square;
 import Battleship.game.Move;
 import Battleship.game.MoveHistory;
@@ -13,9 +14,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MoveHistoryTest
 {
-    private static final String TEST_COORD1 = "A1";
-    private static final String TEST_COORD2 = "B2";
-    private static final String TEST_COORD3 = "C3";
+    private static final Coordinate TEST_COORD1 = new Coordinate("A1");
+    private static final Coordinate TEST_COORD2 = new Coordinate("B2");
+    private static final Coordinate TEST_COORD3 = new Coordinate("C3");
+    
     
     private Move testMove1;
     private Move testMove2;

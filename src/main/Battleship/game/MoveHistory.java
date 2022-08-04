@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @see Move
  *
  * @author Garrett Kamila Crayton
- * @version 0.1.0
+ * @version 0.2.0
  * @since 0.0.0
  */
 public class MoveHistory extends ArrayList<Move>

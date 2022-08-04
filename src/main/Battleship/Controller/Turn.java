@@ -3,6 +3,7 @@ package Battleship.Controller;
 
 import Battleship.GameIO.Validators.MoveValidator;
 import Battleship.game.*;
+import Battleship.game.GameBoard.Coordinate;
 
 
 /**
@@ -11,7 +12,7 @@ import Battleship.game.*;
  * @see Game
  *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.2.0
  * @since 0.1.0
  */
 public class Turn extends TurnController
@@ -49,10 +50,10 @@ public class Turn extends TurnController
         }
         
         // Parse coordinate
-        int[] coord = parseCoord(coordStr);
-    
+        Coordinate coord = new Coordinate(coordStr);
+        
         // Make move
-        game.move(coord[0], coord[1]);
+        game.move(coord);
         
         return true;
     }

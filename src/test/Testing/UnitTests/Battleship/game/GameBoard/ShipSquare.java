@@ -1,17 +1,18 @@
 package Testing.UnitTests.Battleship.game.GameBoard;
 
 
+import Battleship.game.GameBoard.Coordinate;
 import Battleship.game.Ships.Ship;
 
 
 class ShipSquare
 {
     public Ship ship;
-    public int[] position;
+    public Coordinate coord;
     
-    public ShipSquare(Ship ship, int[] position)
+    public ShipSquare(Ship ship, Coordinate coord)
     {
         this.ship = ship;
-        this.position = position;
+        this.coord = coord;
     }
 }

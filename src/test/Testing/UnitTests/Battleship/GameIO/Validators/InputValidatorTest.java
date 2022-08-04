@@ -7,6 +7,7 @@ import Battleship.GameIO.Validators.MoveValidator;
 import Battleship.game.Game;
 import Battleship.game.GameBoard.Board;
 
+import Battleship.game.GameBoard.Coordinate;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -200,7 +201,7 @@ public class InputValidatorTest
     @Test
     public void invalidUnavailable()
     {
-        testBoard.move(0, 0);
+        testBoard.move(new Coordinate(0, 0));
         assertInvalid(0);
     }
     

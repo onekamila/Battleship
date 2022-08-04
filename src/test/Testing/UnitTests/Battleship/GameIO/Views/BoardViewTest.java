@@ -3,6 +3,7 @@ package Testing.UnitTests.Battleship.GameIO.Views;
 
 import Battleship.GameIO.Input;
 import Battleship.GameIO.Views.BoardView;
+import Battleship.game.GameBoard.Coordinate;
 import Testing.TestingConstants;
 import Battleship.game.Game;
 import Battleship.game.GameBoard.Board;
@@ -101,10 +102,10 @@ public class BoardViewTest
     
     private void setShip(Board board, int[][] positions, Ship ship)
     {
-        int[] start = positions[0];
-        int[] end = positions[1];
+        Coordinate start = new Coordinate(positions[0][0], positions[0][1]);
+        Coordinate end = new Coordinate(positions[1][0], positions[1][1]);
         
-        board.placeShip(start[0], start[1], end[0], end[1], ship);
+        board.placeShip(start, end, ship);
     }
     
     // Initially empty
@@ -362,7 +363,7 @@ public class BoardViewTest
     
     private void move(Board board, int row, int col)
     {
-        board.move(row, col);
+        board.move(new Coordinate(row, col));
     }
     
     

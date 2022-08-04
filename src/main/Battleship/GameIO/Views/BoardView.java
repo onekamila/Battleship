@@ -13,7 +13,7 @@ import Battleship.game.GameBoard.OpponentBoard;
  * @see OpponentBoard
  *
  * @author Garrett Kamila Crayton
- * @version 0.1.0
+ * @version 0.2.0
  * @since 0.0.0
  */
 public class BoardView extends View

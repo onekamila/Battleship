@@ -11,7 +11,7 @@ import Battleship.game.Move;
  * @see Move
  *
  * @author Garrett Kamila Crayton
- * @version 0.1.0
+ * @version 0.2.0
  * @since 0.0.0
  */
 public class OpponentBoard extends Board
@@ -22,22 +22,6 @@ public class OpponentBoard extends Board
     public OpponentBoard(Board board)
     {
         super(board.getSquares());
-    }
-    
-    
-    /**
-     * Performs the desired move on the specified <code>Square</code>
-     *
-     * @see Board#move(int, int)
-     *
-     * @param row the row of the desired move
-     * @param col the column of the desired move
-     * @return the <code>Move</code> object representing the desired move
-     */
-    @Override
-    public Move move(int row, int col)
-    {
-        return super.move(row, col);
     }
     
     

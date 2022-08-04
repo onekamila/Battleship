@@ -1,8 +1,8 @@
 package Battleship.GameIO.Validators;
 
 
-import Battleship.GameIO.CoordinateParser;
 import Battleship.game.GameBoard.Board;
+import Battleship.game.GameBoard.Coordinate;
 
 
 /**
@@ -11,7 +11,7 @@ import Battleship.game.GameBoard.Board;
  * @see Board
  *
  * @author Garrett Kamila Crayton
- * @version 0.1.0
+ * @version 0.2.0
  * @since 0.0.0
  */
 public abstract class InputValidator
@@ -45,11 +45,11 @@ public abstract class InputValidator
     {
         try
         {
-            int[] coord = parse(input);
-        
-            if ((coord[0] < 10) && (coord[1] < 10))
+            Coordinate coord = new Coordinate(input);
+            
+            if ((coord.x < 10) && (coord.y < 10))
             {
-                return board.checkAvailable(coord[0], coord[1]);
+                return board.checkAvailable(coord.x, coord.y);
             }
             
             return false;
@@ -58,18 +58,5 @@ public abstract class InputValidator
         {
             return false;
         }
-    }
-    
-    /**
-     * Parse the coordinate from the given <code>String</code>
-     *
-     * @see CoordinateParser
-     *
-     * @param coord the coordinate as a <code>String</code>
-     * @return the coordinate as an <code>int[]</code>
-     */
-    protected int[] parse(String coord)
-    {
-        return CoordinateParser.parse(coord);
     }
 }

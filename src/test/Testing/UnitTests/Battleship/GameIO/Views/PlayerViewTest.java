@@ -6,6 +6,7 @@ import Battleship.GameIO.Views.BoardView;
 import Battleship.GameIO.Views.FleetOverview;
 import Battleship.GameIO.Views.MoveHistoryView;
 import Battleship.GameIO.Views.PlayerView;
+import Battleship.game.GameBoard.Coordinate;
 import Testing.TestingConstants;
 import Battleship.game.Game;
 import Battleship.game.GameBoard.Board;
@@ -77,10 +78,10 @@ public class PlayerViewTest
     
     private void setShip(Board board, int[][] positions, Ship ship)
     {
-        int[] start = positions[0];
-        int[] end = positions[1];
-        
-        board.placeShip(start[0], start[1], end[0], end[1], ship);
+        Coordinate start = new Coordinate(positions[0][0], positions[0][1]);
+        Coordinate end = new Coordinate(positions[1][0], positions[1][1]);
+    
+        board.placeShip(start, end, ship);
     }
     
     // Initially blank
@@ -165,7 +166,7 @@ public class PlayerViewTest
     
     private void move(Player player, int[] coord)
     {
-        Move move = player.move(coord[0], coord[1]);
+        Move move = player.move(new Coordinate(coord[0], coord[1]));
         testHistory.add(move);
     }
     

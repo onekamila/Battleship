@@ -2,6 +2,7 @@ package Battleship.game;
 
 
 import Battleship.game.GameBoard.Board;
+import Battleship.game.GameBoard.Coordinate;
 import Battleship.game.GameBoard.OpponentBoard;
 import Battleship.game.Ships.*;
 
@@ -17,7 +18,7 @@ import java.util.ArrayList;
  * @see ArrayList
  *
  * @author Garrett Kamila Crayton
- * @version 0.1.0
+ * @version 0.2.0
  * @since 0.0.0
  */
 public class Player
@@ -95,36 +96,34 @@ public class Player
     
     
     /**
-     * Place a single <code>Ship</code> at the specified location
+     * Places the specified <code>Ship</code> at the specified <code>Coordinate</code> on this <code>Player</code>'s
+     * <code>Board</code>
      *
-     * @see Board#placeShip(int, int, int, int, Ship)
+     * @see Board#placeShip(Coordinate, Coordinate, Ship)
      *
-     * @param startRow the desired starting row of the <code>Ship</code>
-     * @param startCol the desired starting column of the <code>Ship</code>
-     * @param endRow the desired ending row of the <code>Ship</code>
-     * @param endCol the desired ending column of the <code>Ship</code>
-     * @param ship the desired <code>Ship</code> to be placed
+     * @param start the start <code>Coordinate</code> of the <code>Ship</code>
+     * @param end the end <code>Coordinate</code> of the <code>Ship</code>
+     * @param ship the <code>Ship</code> to be placed
      */
-    public void placeShip(int startRow, int startCol, int endRow, int endCol, Ship ship)
+    public void placeShip(Coordinate start, Coordinate end, Ship ship)
     {
-        board.placeShip(startRow, startCol, endRow, endCol, ship);
+        board.placeShip(start, end, ship);
     }
     
+    
     /**
-     * Performs the desired move at the specified location
+     * Performs the desired move at the specified <code>Coordinate</code>
      *
-     * @see OpponentBoard#move(int, int)
-     *
-     * @param row the row of the desired move
-     * @param col the column of the desired move
-     * @return the Move object representing the desired move
+     * @param coord the <code>Coordinate</code> of the <code>Move</code>
+     * @return the <code>Move</code> object representing this move
      */
-    public Move move(int row, int col)
+    public Move move(Coordinate coord)
     {
-        Move move = oBoard.move(row, col);
+        Move move = oBoard.move(coord);
         
         return move;
     }
+    
     
     /**
      * Check if any ships have been sunk

@@ -3,6 +3,7 @@ package Testing.Simulations;
 
 import Battleship.Controller.GameController;
 import Battleship.GameIO.Input;
+import Battleship.GameIO.MoveHistoryWriter;
 import Battleship.game.Game;
 import Battleship.game.Player;
 
@@ -10,8 +11,13 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -112,9 +118,12 @@ public class GameSimulation4
 	
 	
 	@AfterAll
-	public static void shutdown()
+	public static void shutdown() throws IOException
 	{
-		Input testInput = Input.getInstance();
-		testInput.close();
+		testController.getHistoryWriter().close();
+		File testFile = new File(MoveHistoryWriter.LOG_DIR_PATH + File.separator + "game.log");
+		Files.deleteIfExists(testFile.toPath());
+		
+		Input.getInstance().close();
 	}
 }

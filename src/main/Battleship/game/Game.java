@@ -1,6 +1,8 @@
 package Battleship.game;
 
 
+import Battleship.game.GameBoard.Coordinate;
+
 /**
  * Represents a full game
  *
@@ -8,7 +10,7 @@ package Battleship.game;
  * @see MoveHistory
  *
  * @author Garrett Kamila Crayton
- * @version 0.1.0
+ * @version 0.2.0
  * @since 0.0.0
  */
 public class Game
@@ -116,14 +118,12 @@ public class Game
     /**
      * Make a single move
      *
-     * @see Player#move(int, int)
-     *
-     * @param row the row of the desired move
-     * @param col the column of the desired move
+     * @param coord the <code>Coordinate</code> of the <code>Move</code>
+     * @return the <code>Move</code> object representing this move
      */
-    public Move move(int row, int col)
+    public Move move(Coordinate coord)
     {
-        Move move = currentPlayer.move(row, col);
+        Move move = currentPlayer.move(coord);
         history.add(move);
         setStatus();
         return move;

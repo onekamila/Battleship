@@ -2,6 +2,7 @@ package Battleship.Controller;
 
 
 import Battleship.GameIO.Validators.PlacementValidator;
+import Battleship.game.GameBoard.Coordinate;
 import Battleship.game.Player;
 import Battleship.game.Ships.Fleet;
 import Battleship.game.Ships.Ship;
@@ -14,7 +15,7 @@ import Battleship.game.Ships.Ship;
  * @see PlacementValidator
  *
  * @author Garrett Kamila Crayton
- * @version 0.0.0
+ * @version 0.2.0
  * @since 0.1.0
  */
 public class PlacementTurn extends TurnController
@@ -98,10 +99,10 @@ public class PlacementTurn extends TurnController
         }
     
         // Parse input
-        int[] coord1 = parseCoord(coord1Str);
-        int[] coord2 = parseCoord(coord2Str);
+        Coordinate coord1 = new Coordinate(coord1Str);
+        Coordinate coord2 = new Coordinate(coord2Str);
         
-        player.placeShip(coord1[0], coord1[1], coord2[0], coord2[1], ship);
+        player.placeShip(coord1, coord2, ship);
         println("\n");
     }
 }

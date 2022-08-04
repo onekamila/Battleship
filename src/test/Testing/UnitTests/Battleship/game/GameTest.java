@@ -2,6 +2,7 @@ package Testing.UnitTests.Battleship.game;
 
 
 import Battleship.GameIO.Input;
+import Battleship.game.GameBoard.Coordinate;
 import Testing.TestingConstants;
 import Battleship.game.Game;
 import Battleship.game.GameBoard.Board;
@@ -62,10 +63,11 @@ public class GameTest
 		for(int i = 0; i < 9; i++)
 		{
 			Ship ship = fleet.get(i);
-			int[] start = positions[i][0];
-			int[] end = positions[i][1];
 			
-			board.placeShip(start[0], start[1], end[0], end[1], ship);
+			Coordinate start = new Coordinate(positions[i][0][0], positions[i][0][1]);
+			Coordinate end = new Coordinate(positions[i][1][0], positions[i][1][1]);
+			
+			board.placeShip(start, end, ship);
 		}
 	}
 	
@@ -127,8 +129,7 @@ public class GameTest
 	{
 		setBoards();
 		
-		//testTurn.start();
-		testGame.move(9, 5);
+		move(9, 5);
 		
 		// hits = 1
 		assertEquals(0, testGame.getPlayer1().getFleet().getHits());
@@ -153,7 +154,7 @@ public class GameTest
 		sinkShips(testP1, FLEET2_COORDS);
 		
 		// Last turn
-		testGame.move(9, 5);
+		move(9, 5);
 		
 		// Check winner
 		assertNotNull(testGame.getWinner());
@@ -172,10 +173,10 @@ public class GameTest
 		sinkShips(testP2, FLEET1_COORDS);
 		
 		// Last turn
-		testGame.move(9, 5);
-		testGame.move(9, 5);
-		testGame.move(1, 1);
-		testGame.move(7, 1);
+		move(9, 5);
+		move(9, 5);
+		move(1, 1);
+		move(7, 1);
 		
 		// Check winner
 		assertNotNull(testGame.getWinner());
@@ -191,7 +192,7 @@ public class GameTest
 	{
 		setBoards();
 		
-		testGame.move(1, 3);
+		move(1, 3);
 		
 		assertEquals(1, testGame.getHistory().size());
 		assertEquals(1, testGame.getPlayer2().getFleet().getHits());
@@ -204,8 +205,8 @@ public class GameTest
 	{
 		setBoards();
 		
-		testGame.move(0, 0);
-		testGame.move(3, 1);
+		move(0, 0);
+		move(3, 1);
 		
 		assertEquals(2, testGame.getHistory().size());
 		assertEquals(1, testGame.getPlayer1().getFleet().getHits());
@@ -237,6 +238,11 @@ public class GameTest
 		assertNotNull(player.getFleet());
 	}
 	
+	private void move(int x, int y)
+	{
+		testGame.move(new Coordinate(x, y));
+	}
+	
 	private void sinkShips(Player player, int[][][] coords)
 	{
 		for(int i = 0; i < 8; i++)
@@ -245,11 +251,11 @@ public class GameTest
 			
 			for(int[] coord: ship)
 			{
-				player.move(coord[0], coord[1]);
+				player.move(new Coordinate(coord[0], coord[1]));
 			}
 		}
 		
-		player.move(coords[8][0][0], coords[8][0][1]);
+		player.move(new Coordinate(coords[8][0][0], coords[8][0][1]));
 	}
 	
 	

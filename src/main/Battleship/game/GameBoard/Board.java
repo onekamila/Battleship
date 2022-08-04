@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * @see Move
  *
  * @author Garrett Kamila Crayton
- * @version 0.1.0
+ * @version 0.2.0
  * @since 0.0.0
  */
 public class Board
@@ -60,8 +60,7 @@ public class Board
         {
             for(int j = 0; j < 10; j++)
             {
-                String position = ((char) (j + 65)) + Integer.toString((i + 1));
-                Square newSquare = new Square(position);
+                Square newSquare = new Square(new Coordinate(i, j));
                 squares[i][j] = newSquare;
                 available.add(squares[i][j]);
             }
@@ -102,39 +101,27 @@ public class Board
     }
     
     /**
-     * Places the given <code>Ship</code> in the specified location on the <code>Board</code>
+     * Places the given <code>Ship</code> at the specified <code>Coordinate</code> on this <code>Board</code>
      *
      * @see Square#setShip(Ship)
      *
-     * @param startRow the desired starting row of the <code>Ship</code>
-     * @param startCol the desired starting column of the <code>Ship</code>
-     * @param endRow the desired ending row of the <code>Ship</code>
-     * @param endCol the desired ending column of the <code>Ship</code>
-     * @param ship the desired <code>Ship</code> to be placed
+     * @param start the start <code>Coordinate</code> of the <code>Ship</code>
+     * @param end the end <code>Coordinate</code> of the <code>Ship</code>
+     * @param ship the <code>Ship</code> to be placed
      */
-    public void placeShip(int startRow, int startCol, int endRow, int endCol, Ship ship)
+    public void placeShip(Coordinate start, Coordinate end, Ship ship)
     {
-        int rows = endRow - startRow;
-        int cols = endCol - startCol;
+        int rows = (end.x - start.x) + 1;
+        int cols = (end.y - start.y) + 1;
         
-        int row = startRow;
-        int col = startCol;
-        
-        for(int i = 0; i < ship.getLength(); i++)
+        for(int x = 0; x < rows; x++)
         {
-            if(rows != 0)
+            for(int y = 0; y < cols; y++)
             {
-                row = startRow + i;
+                Square currentSquare = squares[start.x + x][start.y + y];
+                currentSquare.setShip(ship);
+                available.remove(currentSquare);
             }
-            if(cols != 0)
-            {
-                col = startCol + i;
-            }
-            
-            
-            Square currentSquare = squares[row][col];
-            currentSquare.setShip(ship);
-            available.remove(currentSquare);
         }
     }
     
@@ -153,19 +140,16 @@ public class Board
     }
     
     /**
-     * Performs the desired <code>Move</code> on the specified <code>Square</code>
+     * Performs the desired move on the specified <code>Square</code>
      *
-     * @see Square#move()
-     *
-     * @param row the row of the desired move
-     * @param col the column of the desired move
+     * @param coord the <code>Coordinate</code> of the desired <code>Square</code>
      * @return the <code>Move</code> object representing the desired move
      */
-    public Move move(int row, int col)
+    public Move move(Coordinate coord)
     {
-        Square movedSquare = squares[row][col];
+        Square movedSquare = squares[coord.x][coord.y];
         Result result = movedSquare.move();
-        available.remove(squares[row][col]);
+        available.remove(movedSquare);
         Move move = new Move(movedSquare, result);
         
         return move;
@@ -178,9 +162,9 @@ public class Board
      *
      * This is mostly used for testing.
      */
-    public void resetSquare(int row, int col)
+    public void resetSquare(Coordinate coord)
     {
-        Square movedSquare = squares[row][col];
+        Square movedSquare = squares[coord.x][coord.y];
         movedSquare.reset();
         available.add(movedSquare);
     }

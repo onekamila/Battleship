@@ -5,6 +5,7 @@ import Battleship.GameIO.Input;
 import Battleship.GameIO.Validators.MoveValidator;
 import Battleship.game.Game;
 import Battleship.game.GameBoard.Board;
+import Battleship.game.GameBoard.Coordinate;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -53,7 +54,7 @@ public class MoveValidatorTest
     public void invalidRepeatMove()
     {
         assertTrue(testValidator.validate(TEST_COORDINATE_STRING));
-        testBoard.move(TEST_COORDINATE[0], TEST_COORDINATE[1]);
+        testBoard.move(new Coordinate(TEST_COORDINATE[0], TEST_COORDINATE[1]));
         assertFalse(testValidator.validate(TEST_COORDINATE_STRING));
     }
     

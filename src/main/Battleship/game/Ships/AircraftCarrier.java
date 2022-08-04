@@ -7,7 +7,7 @@ package Battleship.game.Ships;
  * @see Ship
  *
  * @author Garrett Kamila Crayton
- * @version 0.1.0
+ * @version 0.2.0
  * @since 0.0.0
  */
 public class AircraftCarrier extends Ship

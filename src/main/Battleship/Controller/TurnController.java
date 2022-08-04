@@ -1,7 +1,6 @@
 package Battleship.Controller;
 
 
-import Battleship.GameIO.CoordinateParser;
 import Battleship.GameIO.Input;
 import Battleship.GameIO.Output;
 import Battleship.GameIO.Validators.InputValidator;
@@ -13,10 +12,9 @@ import Battleship.GameIO.Validators.InputValidator;
  * @see Input
  * @see Output
  * @see InputValidator
- * @see CoordinateParser
  *
  * @author Garrett Kamila Crayton
- * @version 0.1.0
+ * @version 0.2.0
  * @since 0.1.0
  */
 public abstract class TurnController
@@ -82,18 +80,5 @@ public abstract class TurnController
 	protected boolean validate(String coordStr)
 	{
 		return validator.validate(coordStr);
-	}
-	
-	/**
-	 * Parse the given coordinate <code>String</code>
-	 *
-	 * @see CoordinateParser
-	 *
-	 * @param coord the coordinate as a <code>String</code>
-	 * @return the coordinate as an <code>int[]</code>
-	 */
-	protected int[] parseCoord(String coord)
-	{
-		return CoordinateParser.parse(coord);
 	}
 }

@@ -2,6 +2,7 @@ package Testing.UnitTests.Battleship.game.GameBoard;
 
 
 import Battleship.game.GameBoard.Board;
+import Battleship.game.GameBoard.Coordinate;
 import Battleship.game.GameBoard.OpponentBoard;
 import Battleship.game.GameBoard.Square;
 import Battleship.game.Result;
@@ -18,6 +19,8 @@ public class BoardTests
 {
     private static final String BLANK_BOARD = "     A B C D E F G H I J \n  1  - - - - - - - - - - \n  2  - - - - - - - - - - \n  3  - - - - - - - - - - \n  4  - - - - - - - - - - \n  5  - - - - - - - - - - \n  6  - - - - - - - - - - \n  7  - - - - - - - - - - \n  8  - - - - - - - - - - \n  9  - - - - - - - - - - \n 10  - - - - - - - - - - \n";
     private static final int[][][] FLEET_POSITIONS = TestingConstants.FLEET1_POSITIONS;
+    private static final Coordinate TEST_COORD1 = new Coordinate(1, 1);
+    private static final Coordinate TEST_COORD2 = new Coordinate(1, 4);
     
     private Random random;
     
@@ -46,25 +49,29 @@ public class BoardTests
         for(int i = 0; i < 9; i++)
         {
             Ship currentShip = testFleet.get(i);
-            int[] start = FLEET_POSITIONS[i][0];
-            int[] end = FLEET_POSITIONS[i][1];
+            Coordinate start = new Coordinate(FLEET_POSITIONS[i][0][0], FLEET_POSITIONS[i][0][1]);
+            Coordinate end = new Coordinate(FLEET_POSITIONS[i][1][0], FLEET_POSITIONS[i][1][1]);
             
-            if(start[0] == end[0])
-                for(int col = start[1]; col <= end[1]; col++)
+            if(start.x == end.x)
+            {
+                for (int col = start.y; col <= end.y; col++)
                 {
-                    int[] pos = {start[0], col};
-                    shipSquares[j] = new ShipSquare(currentShip, pos);
+                    Coordinate coord = new Coordinate(start.x, col);
+                    shipSquares[j] = new ShipSquare(currentShip, coord);
                     j++;
                 }
+            }
             else
-                for(int row = start[0]; row <= end[0]; row++)
+            {
+                for (int row = start.x; row <= end.x; row++)
                 {
-                    int[] pos = {row, start[1]};
-                    shipSquares[j] = new ShipSquare(currentShip, pos);
+                    Coordinate coord = new Coordinate(row, start.y);
+                    shipSquares[j] = new ShipSquare(currentShip, coord);
                     j++;
                 }
+            }
             
-            testBoard.placeShip(start[0], start[1], end[0], end[1], currentShip);
+            testBoard.placeShip(start, end, currentShip);
         }
     }
     
@@ -97,7 +104,7 @@ public class BoardTests
     @Test
     public void placeOneShipHorizontal()
     {
-        testBoard.placeShip(1, 1, 1, 4, testShip);
+        testBoard.placeShip(new Coordinate(1, 1), new Coordinate(1, 4), testShip);
         
         for(int i = 1; i < 5; i++)
         {
@@ -111,7 +118,7 @@ public class BoardTests
     @Test
     public void placeOneShipVertical()
     {
-        testBoard.placeShip(1, 1, 4, 1, testShip);
+        testBoard.placeShip(new Coordinate(1, 1), new Coordinate(4, 1), testShip);
     
         for(int i = 1; i < 5; i++)
         {
@@ -126,16 +133,16 @@ public class BoardTests
     @Test
     public void moveMiss()
     {
-        assertEquals(Result.MISS, testBoard.move(1, 1).getResult());
+        assertEquals(Result.MISS, testBoard.move(TEST_COORD1).getResult());
     }
     
     // Move on square with Ship
     @Test
     public void moveHit()
     {
-        testBoard.placeShip(1, 1, 1, 4, testShip);
-        
-        assertEquals(Result.HIT, testBoard.move(1, 1).getResult());
+        testBoard.placeShip(TEST_COORD1, TEST_COORD2, testShip);
+    
+        assertEquals(Result.HIT, testBoard.move(TEST_COORD1).getResult());
     }
     
     // Place entire Fleet
@@ -149,10 +156,10 @@ public class BoardTests
             int index = random.nextInt(27);
             ShipSquare shipSquare = shipSquares[index];
             Ship expectedShip = shipSquare.ship;
-            int[] pos = shipSquare.position;
+            Coordinate coord = shipSquare.coord;
             
-            assertEquals(expectedShip, testBoard.getSquare(pos[0], pos[1]).getShip());
-            assertFalse(testBoard.checkAvailable(pos[0], pos[1]));
+            assertEquals(expectedShip, testBoard.getSquare(coord.x, coord.y).getShip());
+            assertFalse(testBoard.checkAvailable(coord.x, coord.y));
         }
         
         assertEquals(73, testBoard.getAvailable().size());
@@ -185,10 +192,10 @@ public class BoardTests
     public void resetSquare()
     {
         assertNull(testBoard.getSquare(0, 0).getResult());
-        testBoard.move(0, 0);
+        testBoard.move(new Coordinate(0, 0));
         assertEquals(Result.MISS, testBoard.getSquare(0, 0).getResult());
         assertEquals(99, testBoard.getAvailable().size());
-        testBoard.resetSquare(0, 0);
+        testBoard.resetSquare(new Coordinate(0, 0));
         assertNull(testBoard.getSquare(0, 0).getResult());
         assertEquals(100, testBoard.getAvailable().size());
     }

@@ -123,7 +123,7 @@ public class TestingConstants
     public static final String[][] PV_TEST_SHIP_POSITIONS = {
             {"A1", "E1"}, {"F1", "J1"}, {"A10", "E10"}, {"F10", "J10"}, // Valid Horizontal         (0-3)
             {"A1", "A5"}, {"J1", "J5"}, {"A6", "A10"}, {"J6", "J10"},   // Valid Vertical           (4-7)
-            {"E1", "A1"},                                               // Valid wrong order        (8)
+            {"E1", "A1"}, {"D7", "D3"},                                 // Valid wrong order        (8)
             {"A1", "D1"}, {"A1", "A4"},                                 // Invalid Short            (9-10)
             {"A1", "F1"}, {"A1", "A6"},                                 // Invalid long             (11-12)
             {"A1", "E5"}                                                // Invalid diagonal         (13)
@@ -786,4 +786,119 @@ public class TestingConstants
               9  - - C C C - D - C - \t  9  - - - - - - - - - - \tDestroyer            (0)\tDestroyer            (0)\t\t
              10  - - - - - - - - - - \t 10  - - - - - - - - - - \tDestroyer            (0)\tDestroyer            (0)\t\t
              """;
+    
+    
+    public static final String EXPECTED_EMPTY_HISTORY_LOG = """
+            \t   Moves\n===================
+            """;
+    
+    public static final String EXPECTED_FIRST_MOVE_HISTORY_LOG = """
+            \t   Moves\n===================
+              1.   A1-M
+              """;
+    
+    public static final String EXPECTED_SECOND_MOVE_HISTORY_LOG = """
+            \t   Moves\n===================
+              1.   A1-M,   B1-M
+              """;
+    
+    public static final String EXPECTED_THIRD_MOVE_HISTORY_LOG = """
+            \t   Moves\n===================
+              1.   A1-M,   B1-M
+              2.   C1-M
+            """;
+    
+    public static final String EXPECTED_ELEVEN_MOVES_HISTORY_LOG = """
+            \t   Moves\n===================
+              1.   A1-M,   B1-M
+              2.   C1-M,   D1-M
+              3.   E1-M,   F1-M
+              4.   G1-M,   H1-M
+              5.   I1-M,   J1-M
+              6.   A2-M
+              
+            Game was interrupted at:""";
+    
+    public static final String EXPECTED_TWENTY_TWO_MOVES_HISTORY_LOG = """
+            \t   Moves\n===================
+              1.   A1-M,   B1-M
+              2.   C1-M,   D1-M
+              3.   E1-M,   F1-M
+              4.   G1-M,   H1-M
+              5.   I1-M,   J1-M
+              6.   A2-M,   B2-M
+              7.   C2-M,   D2-M
+              8.   E2-M,   F2-M
+              9.   G2-M,   H2-M
+             10.   I2-M,   J2-M
+             11.   A3-M,   B3-M
+            """;
+    
+    public static final String EXPECTED_TWENTY_THREE_MOVES_HISTORY_LOG = """
+            \t   Moves\n===================
+              1.   A1-M,   B1-M
+              2.   C1-M,   D1-M
+              3.   E1-M,   F1-M
+              4.   G1-M,   H1-M
+              5.   I1-M,   J1-M
+              6.   A2-M,   B2-M
+              7.   C2-M,   D2-M
+              8.   E2-M,   F2-M
+              9.   G2-M,   H2-M
+             10.   I2-M,   J2-M
+             11.   A3-M,   B3-M
+             12.   C3-M
+            """;
+    
+    public static final String EXPECTED_TWENTY_FOUR_MOVES_HISTORY_LOG = """
+            \t   Moves\n===================
+              1.   A1-M,   B1-M
+              2.   C1-M,   D1-M
+              3.   E1-M,   F1-M
+              4.   G1-M,   H1-M
+              5.   I1-M,   J1-M
+              6.   A2-M,   B2-M
+              7.   C2-M,   D2-M
+              8.   E2-M,   F2-M
+              9.   G2-M,   H2-M
+             10.   I2-M,   J2-M
+             11.   A3-M,   B3-M
+             12.   C3-M,   D3-M
+            """;
+    
+    public static final String EXPECTED_TWENTY_SEVEN_MOVES_HISTORY_LOG = """
+            \t   Moves\n===================
+              1.   A1-M,   B1-M
+              2.   C1-M,   D1-M
+              3.   E1-M,   F1-M
+              4.   G1-M,   H1-M
+              5.   I1-M,   J1-M
+              6.   A2-M,   B2-M
+              7.   C2-M,   D2-M
+              8.   E2-M,   F2-M
+              9.   G2-M,   H2-M
+             10.   I2-M,   J2-M
+             11.   A3-M,   B3-M
+             12.   C3-M,   D3-M
+             13.   E3-M,   F3-M
+             14.   G3-M
+            """;
+    
+    public static final String EXPECTED_TWENTY_EIGHT_MOVES_HISTORY_LOG = """
+            \t   Moves\n===================
+              1.   A1-M,   B1-M
+              2.   C1-M,   D1-M
+              3.   E1-M,   F1-M
+              4.   G1-M,   H1-M
+              5.   I1-M,   J1-M
+              6.   A2-M,   B2-M
+              7.   C2-M,   D2-M
+              8.   E2-M,   F2-M
+              9.   G2-M,   H2-M
+             10.   I2-M,   J2-M
+             11.   A3-M,   B3-M
+             12.   C3-M,   D3-M
+             13.   E3-M,   F3-M
+             14.   G3-M,   H3-M
+            """;
 }

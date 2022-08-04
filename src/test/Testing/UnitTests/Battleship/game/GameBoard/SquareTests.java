@@ -1,6 +1,7 @@
 package Testing.UnitTests.Battleship.game.GameBoard;
 
 
+import Battleship.game.GameBoard.Coordinate;
 import Battleship.game.GameBoard.Square;
 import Battleship.game.Result;
 import Battleship.game.Ships.Battleship;
@@ -15,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 public class SquareTests
 {
     private static final String TEST_POSITION = "A1";
+    private static final Coordinate TEST_COORD = new Coordinate(TEST_POSITION);
     private Square testSquare;
     private Ship testShip;
     
@@ -22,7 +24,7 @@ public class SquareTests
     @BeforeEach
     public void init()
     {
-        testSquare = new Square(TEST_POSITION);
+        testSquare = new Square(TEST_COORD);
         testShip = new Battleship();
     }
     

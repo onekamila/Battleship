@@ -1,5 +1,6 @@
 package Testing.UnitTests.Battleship.game;
 
+import Battleship.game.GameBoard.Coordinate;
 import Testing.TestingConstants;
 import Battleship.game.GameBoard.OpponentBoard;
 import Battleship.game.Move;
@@ -44,7 +45,6 @@ public class PlayerTest
 	@Test
 	public void setOpponentBoard()
 	{
-		//OpponentBoard testOpponentBoard = new OpponentBoard(new Board());
 		Player testOpponent = new Player();
 		OpponentBoard testOpponentBoard = testOpponent.getOpponentBoard();
 		
@@ -59,11 +59,10 @@ public class PlayerTest
 	@Test
 	public void placeShip()
 	{
-		int[] start = FLEET_POSITIONS[0][0];
-		int[] end = FLEET_POSITIONS[0][1];
+		Coordinate start = new Coordinate(FLEET_POSITIONS[0][0][0], FLEET_POSITIONS[0][0][1]);
 		setShip();
 		
-		assertFalse(testPlayer.getBoard().checkAvailable(start[0], start[1]));
+		assertFalse(testPlayer.getBoard().checkAvailable(start.x, start.y));
 	}
 	
 	// Make move
@@ -115,14 +114,14 @@ public class PlayerTest
 	
 	private void setShip()
 	{
-		int[] start = FLEET_POSITIONS[0][0];
-		int[] end = FLEET_POSITIONS[0][1];
-		testPlayer.placeShip(start[0], start[1], end[0], end[1], testPlayer.getFleet().get(0));
+		Coordinate start = new Coordinate(FLEET_POSITIONS[0][0][0], FLEET_POSITIONS[0][0][1]);
+		Coordinate end = new Coordinate(FLEET_POSITIONS[0][1][0], FLEET_POSITIONS[0][1][1]);
+		testPlayer.placeShip(start, end, testPlayer.getFleet().get(0));
 	}
 	
 	private Move move(int row, int col)
 	{
-		return testPlayer.move(row, col);
+		return testPlayer.move(new Coordinate(row, col));
 	}
 	
 	private void sinkShip()
@@ -131,7 +130,7 @@ public class PlayerTest
 		
 		for(int[] coord: HIT_COORDS)
 		{
-			testPlayer.move(coord[0], coord[1]);
+			testPlayer.move(new Coordinate(coord[0], coord[1]));
 		}
 	}
 }
