@@ -15,12 +15,13 @@ import java.util.ArrayList;
  * @see Move
  *
  * @author Garrett Kamila Crayton
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.0.0
  */
 public class Board
 {
     private Square[][] squares;
+    /** The list of available <code>Square</code>s for this <code>Board</code> */
     protected ArrayList<Square> available;
     
     
@@ -150,7 +151,7 @@ public class Board
         Square movedSquare = squares[coord.x][coord.y];
         Result result = movedSquare.move();
         available.remove(movedSquare);
-        Move move = new Move(movedSquare, result);
+        Move move = new Move(movedSquare);
         
         return move;
     }
@@ -161,6 +162,9 @@ public class Board
      * @see Square#reset()
      *
      * This is mostly used for testing.
+     *
+     *
+     * @param coord the <code>Coordinate</code> of the <code>Square</code> to be reset
      */
     public void resetSquare(Coordinate coord)
     {

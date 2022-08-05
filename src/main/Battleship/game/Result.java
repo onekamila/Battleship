@@ -5,13 +5,22 @@ package Battleship.game;
  * Represents all possible results from a <code>Move</code>
  *
  * @author Garrett Kamila Crayton
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.0.0
  */
 public enum Result
 {
+    /**
+     * Represents a hit on a <code>Ship</code>
+     */
     HIT('X'),
+    /**
+     * Represents a miss
+     */
     MISS('O'),
+    /**
+     * Represents a <code>Ship</code> was hit and sunk
+     */
     SUNK('X');
     
     

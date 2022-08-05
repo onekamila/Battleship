@@ -2,7 +2,7 @@
 ![3]
 
 # <u>Battleship</u>
-*v0.2.0*
+*v0.2.1*
 
 
 This is a program that simulates playing a game of Battleship between two players.
@@ -13,7 +13,7 @@ Navigate to the folder that you saved the code to, then run the following comman
 javac -cp out -sourcepath src\main -d out src\main\Battleship\Driver.java
 java -cp out Battleship.Driver
 ```
-*For my less shell-savy friends*: an installer has been included for your convenience. Simply download the .msi file, 
+*For my less shell-savvy friends*: an installer has been included for your convenience. Simply download the .msi file, 
 run it, and then you will be able to run the game from there. (Currently only for Windows. I'll probably get around to 
 packaging it into a macOS and Unix installer at some point soon.)
 
@@ -24,7 +24,7 @@ I'm using this as a way to test and showcase my design skills. If you have any r
 
 
 ## Upcoming Features
-Some of you may notice that this is still only version 0.2.0. This is because I am planning on doing making several key 
+Some of you may notice that this is still only version 0.2.1. This is because I am planning on doing making several key 
 changes to the system. The following lists are features I plan to include, but is by no means exhaustive and will be 
 subject to expansion.
 

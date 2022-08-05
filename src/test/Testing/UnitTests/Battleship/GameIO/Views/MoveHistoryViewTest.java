@@ -46,6 +46,8 @@ public class MoveHistoryViewTest
     private MoveHistoryView testView;
     private Square testSquare1;
     private Square testSquare2;
+    private Square testSquare3;
+    private Square testSquare4;
     private Ship testShip1;
     private Ship testShip2;
     
@@ -59,9 +61,11 @@ public class MoveHistoryViewTest
         testHistory = testGame.getHistory();
         testView = new MoveHistoryView(testGame);
         testSquare1 = new Square(FIRST_MOVE_SQUARE);
-        testSquare1.setShip(testShip1);
         testSquare2 = new Square(SECOND_MOVE_SQUARE);
-        testSquare2.setShip(testShip2);
+        testSquare3 = new Square(FIRST_MOVE_SQUARE);
+        testSquare3.setShip(testShip1);
+        testSquare4 = new Square(SECOND_MOVE_SQUARE);
+        testSquare4.setShip(testShip2);
     }
     
     // Initially empty
@@ -82,14 +86,14 @@ public class MoveHistoryViewTest
     @Test
     public void firstMoveHit()
     {
-        newMove(testSquare1, Result.HIT);
+        newMove(testSquare3, Result.HIT);
         assertEquals(FIRST_MOVE_HIT, testView.toString());
     }
     
     @Test
     public void firstMoveSunk()
     {
-        newMove(testSquare1, Result.SUNK);
+        newMove(testSquare3, Result.SUNK);
         assertEquals(FIRST_MOVE_SUNK, testView.toString());
     }
     
@@ -106,7 +110,7 @@ public class MoveHistoryViewTest
     public void secondMoveHit()
     {
         newMove(testSquare1, Result.MISS);
-        newMove(testSquare1, Result.HIT);
+        newMove(testSquare3, Result.HIT);
         assertEquals(SECOND_MOVE_HIT, testView.toString());
     }
     
@@ -114,7 +118,7 @@ public class MoveHistoryViewTest
     public void secondMoveSunk()
     {
         newMove(testSquare1, Result.MISS);
-        newMove(testSquare1, Result.SUNK);
+        newMove(testSquare3, Result.SUNK);
         assertEquals(SECOND_MOVE_SUNK, testView.toString());
     }
     
@@ -133,7 +137,7 @@ public class MoveHistoryViewTest
     {
         newMove(testSquare1, Result.MISS);
         newMove(testSquare1, Result.MISS);
-        newMove(testSquare2, Result.HIT);
+        newMove(testSquare4, Result.HIT);
         assertEquals(THIRD_MOVE_HIT, testView.toString());
     }
     
@@ -142,7 +146,7 @@ public class MoveHistoryViewTest
     {
         newMove(testSquare1, Result.MISS);
         newMove(testSquare1, Result.MISS);
-        newMove(testSquare2, Result.SUNK);
+        newMove(testSquare4, Result.SUNK);
         assertEquals(THIRD_MOVE_SUNK, testView.toString());
     }
     
@@ -189,7 +193,16 @@ public class MoveHistoryViewTest
     
     private void newMove(Square square, Result result)
     {
-        Move move = new Move(square, result);
+        if(result == Result.SUNK)
+        {
+            for(int i = 0; i < square.getShip().getLength() - 1; i++)
+            {
+                square.getShip().hit();
+            }
+        }
+        
+        square.move();
+        Move move = new Move(square);
         testHistory.add(move);
     }
     

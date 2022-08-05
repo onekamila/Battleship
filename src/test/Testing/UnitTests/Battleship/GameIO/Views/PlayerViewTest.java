@@ -88,7 +88,6 @@ public class PlayerViewTest
     @Test
     public void initiallyBlank()
     {
-        //assertValid(EMPTY_VIEW);
         checkView();
     }
     

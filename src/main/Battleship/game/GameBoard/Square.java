@@ -12,7 +12,7 @@ import Battleship.game.Ships.Ship;
  * @see Ship
  *
  * @author Garrett Kamila Crayton
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.0.0
  */
 public class Square
@@ -92,6 +92,11 @@ public class Square
      */
     public Result move()
     {
+        if(result != null)
+        {
+            return result;
+        }
+        
         if(ship != null)
         {
             ship.hit();

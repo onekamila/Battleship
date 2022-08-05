@@ -4,7 +4,6 @@ package Testing.UnitTests.Battleship.game;
 import Battleship.game.GameBoard.Coordinate;
 import Battleship.game.GameBoard.Square;
 import Battleship.game.Move;
-import Battleship.game.Result;
 import Battleship.game.Ships.Battleship;
 import Battleship.game.Ships.Ship;
 
@@ -39,7 +38,8 @@ public class MoveTest
     @Test
     public void hit()
     {
-        testMove = new Move(testSquare, Result.HIT);
+        testSquare.move();
+        testMove = new Move(testSquare);
         
         assertEquals(testSquare, testMove.getSquare());
         assertEquals(TEST_COORD.toString(), testMove.getSquare().getPosition());
@@ -50,7 +50,9 @@ public class MoveTest
     @Test
     public void miss()
     {
-        testMove = new Move(testSquare, Result.MISS);
+        testSquare.setShip(null);
+        testSquare.move();
+        testMove = new Move(testSquare);
     
         assertEquals(testSquare, testMove.getSquare());
         assertEquals(TEST_COORD.toString(), testMove.getSquare().getPosition());
@@ -61,7 +63,11 @@ public class MoveTest
     @Test
     public void sunk()
     {
-        testMove = new Move(testSquare, Result.SUNK);
+        testShip.hit();
+        testShip.hit();
+        testShip.hit();
+        testSquare.move();
+        testMove = new Move(testSquare);
     
         assertEquals(testSquare, testMove.getSquare());
         assertEquals(TEST_COORD.toString(), testMove.getSquare().getPosition());
@@ -73,7 +79,11 @@ public class MoveTest
     @Test
     public void win()
     {
-        testMove = new Move(testSquare, Result.SUNK);
+        testShip.hit();
+        testShip.hit();
+        testShip.hit();
+        testSquare.move();
+        testMove = new Move(testSquare);
         testMove.setWin();
     
         assertEquals(testSquare, testMove.getSquare());

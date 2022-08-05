@@ -14,7 +14,7 @@ import Battleship.game.Ships.Ship;
 /**
  * Controller class for a full game of Battleship.
  * <p>
- * This class controls the actual flow of the Battleship.game. It receives input from the user, validates the input, uses the input
+ * This class controls the actual flow of the game. It receives input from the user, validates the input, uses the input
  * to manipulate the <code>Game</code> model (assuming the input is valid), and then outputs the result to the user.
  * <p>
  * This class will also allow the project to be expanded to use different IO, along with adding a single-player (AI)
@@ -27,7 +27,7 @@ import Battleship.game.Ships.Ship;
  * @see PlayerView
  *
  * @author Garrett Kamila Crayton
- * @version 0.1.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public class GameController
@@ -77,6 +77,10 @@ public class GameController
 		return view;
 	}
 	
+	/**
+	 * Return the <code>MoveHistoryWriter</code> for this <code>Game</code>
+	 * @return the <code>MoveHistoryWriter</code> for this <code>Game</code>
+	 */
 	public MoveHistoryWriter getHistoryWriter()
 	{
 		return historyWriter;

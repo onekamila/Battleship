@@ -10,7 +10,7 @@ import Battleship.game.GameBoard.Coordinate;
  * @see MoveHistory
  *
  * @author Garrett Kamila Crayton
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.0.0
  */
 public class Game

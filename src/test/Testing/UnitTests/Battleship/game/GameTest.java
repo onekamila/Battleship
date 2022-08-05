@@ -131,7 +131,7 @@ public class GameTest
 		
 		move(9, 5);
 		
-		// hits = 1
+		// hits == 1
 		assertEquals(0, testGame.getPlayer1().getFleet().getHits());
 		assertEquals(1, testGame.getPlayer2().getFleet().getHits());
 		

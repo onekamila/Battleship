@@ -11,26 +11,22 @@ import Battleship.game.GameBoard.Square;
  * @see Result
  *
  * @author Garrett Kamila Crayton
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.0.0
  */
 public class Move
 {
     private Square square;
-    private Result result;
     private boolean win;
     
     
     /**
      * Class constructor
-     *
-     * @param square the <code>Square</code> for this <code>Move</code>
-     * @param result the <code>Result</code> of this <code>Move</code>
+     *  @param square the <code>Square</code> for this <code>Move</code>
      */
-    public Move(Square square, Result result)
+    public Move(Square square)
     {
         this.square = square;
-        this.result = result;
         this.win = false;
     }
     
@@ -52,7 +48,7 @@ public class Move
      */
     public Result getResult()
     {
-        return this.result;
+        return square.getResult();
     }
     
     
@@ -87,7 +83,8 @@ public class Move
     
     private String resultStr()
     {
-        String outStr = "-" + this.result.name().charAt(0);
+        Result result = square.getResult();
+        String outStr = "-" + result.name().charAt(0);
         
         if((result == Result.HIT) || (result == Result.SUNK))
         {

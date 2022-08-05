@@ -11,13 +11,15 @@ import Battleship.game.Move;
  * @see Move
  *
  * @author Garrett Kamila Crayton
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.0.0
  */
 public class OpponentBoard extends Board
 {
     /**
      * Class Constructor
+     *
+     * @param board the <code>Board</code> that contains the opponent's <code>Fleet</code>
      */
     public OpponentBoard(Board board)
     {

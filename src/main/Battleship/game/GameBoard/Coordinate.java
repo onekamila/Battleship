@@ -5,7 +5,7 @@ package Battleship.game.GameBoard;
  * Represents a coordinate on a <code>Board</code>
  *
  * @author Garrett Kamila Crayton
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.2.0
  */
 public class Coordinate
@@ -41,7 +41,6 @@ public class Coordinate
 	{
 		parseCoord(coordStr);
 	}
-	
 	
 	private void parseCoord(String coordStr)
 	{
