@@ -9,7 +9,7 @@ import Battleship.game.Player;
  * Handles the output of the current <code>Game</code>
  *
  * @author Garrett Kamila Crayton
- * @version 0.2.1
+ * @version 0.2.2
  * @since 0.1.0
  */
 public abstract class View

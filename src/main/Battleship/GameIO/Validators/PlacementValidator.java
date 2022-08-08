@@ -10,7 +10,7 @@ import Battleship.game.Ships.Ship;
  * Validates the coordinates given by the user are valid
  *
  * @author Garrett Kamila Crayton
- * @version 0.2.1
+ * @version 0.2.2
  * @since 0.0.0
  */
 public class PlacementValidator extends InputValidator

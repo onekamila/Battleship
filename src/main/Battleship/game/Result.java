@@ -5,7 +5,7 @@ package Battleship.game;
  * Represents all possible results from a <code>Move</code>
  *
  * @author Garrett Kamila Crayton
- * @version 0.2.1
+ * @version 0.2.2
  * @since 0.0.0
  */
 public enum Result

@@ -11,7 +11,7 @@ import Battleship.game.Game;
  * @see Battleship.game.GameBoard.OpponentBoard
  *
  * @author Garrett Kamila Crayton
- * @version 0.2.1
+ * @version 0.2.2
  * @since 0.0.0
  */
 public class MoveValidator extends InputValidator

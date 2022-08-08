@@ -5,7 +5,7 @@ package Battleship.GameIO;
  * Handles all output to the user
  *
  * @author Garrett Kamila Crayton
- * @version 0.2.1
+ * @version 0.2.2
  * @since 0.0.0
  */
 public class Output

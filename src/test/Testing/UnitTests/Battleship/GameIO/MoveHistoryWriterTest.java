@@ -70,6 +70,7 @@ public class MoveHistoryWriterTest
 		
 		File logDir = new File(MoveHistoryWriter.LOG_DIR_PATH);
 		deleteTestFile();
+		clearDirectory(logDir);
 		Files.deleteIfExists(logDir.toPath());
 		
 		assertFalse(logDir.exists());
@@ -264,6 +265,26 @@ public class MoveHistoryWriterTest
 		deleteTestFile();
 	}
 	
+	
+	private void clearDirectory(File dir) throws IOException
+	{
+		if(!dir.exists())
+		{
+			return;
+		}
+		
+		File[] files = dir.listFiles();
+		
+		if(files == null)
+		{
+			return;
+		}
+		
+		for(File file: files)
+		{
+			Files.deleteIfExists(file.toPath());
+		}
+	}
 	
 	private void waitSecond()
 	{

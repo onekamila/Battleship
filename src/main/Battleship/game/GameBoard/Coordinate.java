@@ -5,7 +5,7 @@ package Battleship.game.GameBoard;
  * Represents a coordinate on a <code>Board</code>
  *
  * @author Garrett Kamila Crayton
- * @version 0.2.1
+ * @version 0.2.2
  * @since 0.2.0
  */
 public class Coordinate
